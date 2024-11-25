@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :cultures
-  validates :username, :uniqueness
-  validates :username, presence: true
-  validates :address, presence: true
+  # validates :username, :uniqueness
+  # validates :username, presence: true
+  # validates :address, presence: true
 end
