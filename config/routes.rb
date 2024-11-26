@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,6 +10,28 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+
+  # root doit diriger vers homepage
+  root to: "pages#home"
+
+
+  # création des routes culture (new/create/show/index/destroy)
+  resources :cultures, only: %i[new create show index destroy] do
+    # task (new/create) doit être nested dans culture
+    resources :tasks, only: %i[new create]
+  end
+
+
+  # task (show/index/destroy/validate/description)
+  resources :tasks, only: %i[show index destroy edit update] do
+    # routes validates et description dépendent d'une task
+    member do
+      patch :validate
+      get :description
+    end
+  end
+
+  # page profile ne dépend pas d'un modèle donc pas resources
+  get "/profile", to: "profiles#show", as: :profile
+
 end
