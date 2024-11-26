@@ -1,0 +1,10 @@
+<div class="container w-50">
+  <%= simple_form_for Culture.new do |f| %>
+    <%= f.input :name, collection: Culture::CULTURE_NAME, value: Culture::CULTURE_NAME.first %>
+    <%= f.input :plantation_date, html5: true %>
+    <%= f.input :outdoor %>
+    <%= f.input :in_ground %>
+    <%= f.input :status, collection: Culture::CULTURE_STATUS, value: Culture::CULTURE_STATUS.first %>
+    <%= f.submit %>
+  <% end %>
+</div>

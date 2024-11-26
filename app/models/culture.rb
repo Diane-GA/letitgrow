@@ -5,5 +5,6 @@ class Culture < ApplicationRecord
   validates :name, presence: true
   has_one_attached :photo
 
-  CULTURE_STATUS = ["Graine", "Premiéres feuilles", "Petit plan", "Premiére fleurs", "Premiers fruits", "fin de fructification"]
+  CULTURE_STATUS = ["Graine", "Jeune plant", "Mature"]
+  CULTURE_NAME = ["Pomme de terre", "Tomate", "Salade", "Poivron"] #mettre à jour la liste avec les noms des master cultures
 end

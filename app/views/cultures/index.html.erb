@@ -1,7 +1,16 @@
 <div>
   <ul>
     <% @cultures.each do |culture| %>
-      <li><%= culture.name %></li>
+      <%# Ajout lien vers la show %>
+      <li><%= link_to culture.name, culture_path(culture.id) %></li>
     <% end %>
   </ul>
+  <%# Ajout lien vers la liste des tâche du jour, path à modifier %>
+  <%= link_to "Mes tâches du jour", tasks_path %>
+
+  <%# Ajouter lien vers la liste des tâche totales %>
+  <%= link_to "Calendrier de tâches", tasks_path %>
+
+  <%# Ajouter lien vers le profil %>
+  <%= link_to "Mon profil", profile_path %>
 </div>
