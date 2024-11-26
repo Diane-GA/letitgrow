@@ -4,6 +4,10 @@ class CulturesController < ApplicationController
     # on récupère toutes les cultures propre au user connecté
     @cultures = Culture.where(user: current_user)
   end
+  
+  def show
+    @culture = Culture.find(params[:id])
+  end
 
   def new
   end
@@ -37,5 +41,5 @@ class CulturesController < ApplicationController
   def params_culture
       params.require(:culture).permit(:name, :status, :in_ground, :outdoor, :plantation_date)
   end
-
+  
 end

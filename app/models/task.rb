@@ -19,4 +19,7 @@ class Task < ApplicationRecord
     p self.culture.plantation_date
   end
   
+  def start_time
+    date
+  end
 end
