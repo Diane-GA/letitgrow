@@ -1,0 +1,8 @@
+<%= simple_form_for Culture.new do |f| %>
+<%= f.input :name, collection: Culture::CULTURE_NAME %>
+<%= f.input :plantation_date %>
+<%= f.input :outdoor %>
+<%= f.input :in_ground %>
+<%= f.input :status, collection: Culture::CULTURE_STATUS %>
+<%= f.submit %>
+<% end %>

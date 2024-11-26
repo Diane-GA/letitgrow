@@ -26,17 +26,18 @@ puts "========== 🪄 #{User.count} users crées ! 🪄 ==================="
 puts "========== 🔮 Créations des Cultures 🔮 ============"
 
 cultures_data = [
-  { name: "Pomme de terre", in_ground: true, outdoor: true, user: user, photo: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { name: "Tomate", in_ground: false, outdoor: true, user: user, photo: "https://images.unsplash.com/photo-1517666005606-69dea9b54865?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { name: "Salade", in_ground: true, outdoor: false, user: user, photo: "https://images.unsplash.com/photo-1691906233921-8d62bb44a28f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { name: "Poivron", in_ground: false, outdoor: false, user: user, photo: "https://images.unsplash.com/photo-1669524943640-44a43585ee88?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
+  { name: "Pomme de terre", status: "graines", in_ground: true, outdoor: true, user: user, photo: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Tomate", status: "graines", in_ground: false, outdoor: true, user: user, photo: "https://images.unsplash.com/photo-1517666005606-69dea9b54865?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Salade", status: "graines", in_ground: true, outdoor: false, user: user, photo: "https://images.unsplash.com/photo-1691906233921-8d62bb44a28f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Poivron", status: "graines", in_ground: false, outdoor: false, user: user, photo: "https://images.unsplash.com/photo-1669524943640-44a43585ee88?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
 ]
 
 cultures_data.each do |data|
   culture = Culture.create!(
     **data.except(:photo), # Exclure temporairement :photo pour la création initiale
     plantation_date: Date.today - rand(1..365),
-    status: ["Graine", "Premières feuilles", "Petit plan", "Premières fleurs", "Premiers fruits", "Fin de fructification"].sample
+    status: data[:status],
+    master: true
   )
 
   # Attacher l'image Cloudinary via ActiveStorage
