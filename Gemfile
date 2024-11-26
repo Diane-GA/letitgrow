@@ -31,6 +31,7 @@ gem "sassc-rails"
 
 gem 'ancestry'
 gem "cloudinary"
+gem "simple_calendar"
 
 group :development, :test do
   gem "dotenv-rails"
