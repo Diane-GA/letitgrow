@@ -6,4 +6,8 @@ class Task < ApplicationRecord
 
   CATEGORY = []
   TASK_STATUS = ["A faire", "En cours", "Valider"]
+
+  def start_time
+    date
+  end
 end
