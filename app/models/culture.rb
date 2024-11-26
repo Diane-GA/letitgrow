@@ -1,4 +1,5 @@
 class Culture < ApplicationRecord
+  has_ancestry
   belongs_to :user
   has_many :tasks
   validates :name, presence: true
