@@ -30,6 +30,7 @@ gem "sassc-rails"
 # Gem pour le projet
 
 gem 'ancestry'
+gem "cloudinary"
 
 group :development, :test do
   gem "dotenv-rails"
