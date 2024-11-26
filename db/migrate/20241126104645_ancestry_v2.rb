@@ -4,6 +4,6 @@ class AncestryV2 < ActiveRecord::Migration[7.2]
       # postgres
       t.string "ancestry", collation: 'C', null: false
       t.index "ancestry"
+    end
   end
-end
 end
