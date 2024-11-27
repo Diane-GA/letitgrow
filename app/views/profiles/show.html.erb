@@ -1,0 +1,10 @@
+<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20">
+  <h1 class="fs-1 text-white fw-bold">Compte</h1>
+  <% if user_signed_in? %>
+    <p>Hello <%= current_user.username%></p>
+    <i class="fa-solid fa-user fs-150 color-sage"></i>
+    <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-outline-danger w-100 rounded-50" %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+  <% end %>
+</div>
