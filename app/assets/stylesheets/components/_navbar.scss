@@ -1,3 +1,4 @@
+/* TODO: supprimer quand la nav dans le html sera supprimer */
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -9,4 +10,37 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+
+/* Down Navbar */
+.down-navbar {
+  position: fixed;
+  bottom: 20px;
+  height: 60px;
+  width: 100%;
+  max-width: 370px;
+  border-radius: 50px;
+  background-color: $white;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 4px 4px 4px 0 rgba(#000000, 0.1);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.down-navbar a i {
+  font-size: 30px;
+  color: $sage;
+}
+
+.down-navbar a i:hover {
+  color: $green-forest;
+}
+
+.down-navbar a i:active {
+  color: $green-forest;
+  opacity: 90%;
 }
