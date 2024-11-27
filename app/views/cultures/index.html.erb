@@ -1,4 +1,5 @@
-<div>
+<div class="bg-white">
+  <h1 class="fw-bold text-success">Let it grow</h1>
   <ul>
     <% @cultures.each do |culture| %>
       <%# Ajout lien vers la show %>
@@ -7,10 +8,8 @@
   </ul>
   <%# Ajout lien vers la liste des tâche du jour, path à modifier %>
   <%= link_to "Mes tâches du jour", tasks_path %>
-
   <%# Ajouter lien vers la liste des tâche totales %>
   <%= link_to "Calendrier de tâches", tasks_path %>
-
   <%# Ajouter lien vers le profil %>
   <%= link_to "Mon profil", profile_path %>
 </div>
