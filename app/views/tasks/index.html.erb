@@ -1,15 +1,19 @@
-<%= month_calendar events: @tasks do |date, tasks| %>
-<%= l(date, format: :default) %>
-
-
-  <% tasks.each do |task| %>
-    <div>
-    <p>
-      <%= task.name %> tes
-      <%# <%= cl_image_tag(task.culture.photo.key,
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <%= month_calendar events: @tasks do |date, tasks| %>
+        <%= l(date, format: :default) %>
+        <% tasks.each do |task| %>
+          <div>
+            <p>
+              <%= task.name %> tes
+              <%# <%= cl_image_tag(task.culture.photo.key,
       width: 400, height: 300, crop: :fill) %> %>
-      <%= task.culture.name %>s
-    </p>
+              <%= task.culture.name %>s
+            </p>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>
