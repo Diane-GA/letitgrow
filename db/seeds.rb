@@ -49,16 +49,15 @@ puts "========== 🔮 #{Culture.count} Cultures crée 🔮 ==================="
 puts "========== 🪄 Créations des Tasks 🪄 ==============="
 
 # Méthode pour créer des tasks pour une culture donnée
-def create_tasks_for_culture(culture, count: 4)
-  (1..count).each do |i|
+def create_tasks_for_culture(culture)
+  3.times do |i|
     Task.create!(
       name: ["Arroser", "Rempoter", "Transplanter", "Semer"].sample,
       description: "Task pour #{culture.name}",
-      date: Date.today + rand(1..30), # Exemples de dates futures aléatoires
-      status: ["À faire", "En cours", "Validée"].sample,
-      order: i,
+      order: 1,
       category: ["Entretien", "Plantation", "Récolte"].sample,
-      culture: culture
+      culture: culture,
+      delay: 4
     )
   end
 end

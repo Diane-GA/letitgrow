@@ -14,9 +14,9 @@ class CulturesController < ApplicationController
 
   def create
     # On récupère la master culture via les params : name et master true
-    # @master_culture = Culture.find_by(name: params_culture[:name], master: true)
+    @master_culture = Culture.find_by(name: params_culture[:name], master: true)
     # Initialement on récupérait la master culture via les params : name, status master true
-    @master_culture = Culture.find_by(name: params_culture[:name], status: params_culture[:status], master: true)
+    # @master_culture = Culture.find_by(name: params_culture[:name], status: params_culture[:status], master: true)
 
 
     # on assigne à la nouvelle culture les caractéristiques de master
@@ -32,7 +32,7 @@ class CulturesController < ApplicationController
       # on assigne cette copie à la new culture
       new_task.culture = @new_culture
       # on save la task
-      new_task.save!
+      new_task.save
     end
     # on save la culture + redirection show
     @new_culture.save
@@ -42,7 +42,7 @@ class CulturesController < ApplicationController
   private
 
   def params_culture
-      params.require(:culture).permit(:name, :status, :in_ground, :outdoor, :plantation_date)
+      params.require(:culture).permit(:name, :status, :in_ground, :outdoor, :plantation_date, :delay)
   end
 
 end

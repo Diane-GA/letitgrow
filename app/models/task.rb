@@ -3,12 +3,12 @@ class Task < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   # validates :order, presence: true / order n'est plus forcément utile
-  validates :delay, presence: true
-  after_create :set_date
+
   # ajouter fait = false par défaut à la création
 
+  after_create :set_date
+
   CATEGORY = []
-  TASK_STATUS = ["A faire", "Validé"] # à supprimer
 
   # méthode qui attribue une date d'action en fonction du délai
   # propre à la tâche et de la plantation_date de la culture
