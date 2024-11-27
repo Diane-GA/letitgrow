@@ -1,0 +1,68 @@
+<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20">
+  <h1 class="fs-64">Let it grow</h1>
+  <ul class="text-white">
+    <% cultures.each do |culture| %>
+      <%# Ajout lien vers la show %>
+      <li><%= link_to culture.name, culture_path(culture.id), class: "text-white" %></li>
+    <% end %>
+  </ul>
+  <!-- honeycomb  -->
+  <!-- data-controller="hexagones"  -->
+  <div  class="flex flex-col items-center">
+    <div class="flex flex-col mt-6">
+      <div class="hexa-container">
+        <div data-hexagones-target="vege1" class="hexa disabled-hexa"></div>
+        <div data-hexagones-target="vege2" class="hexa disabled-hexa"></div>
+        <div data-hexagones-target="vege3" class="hexa disabled-hexa"></div>
+      </div>
+      <div class="hexa-container even-container">
+        <div data-hexagones-target="vege4" class="hexa disabled-hexa"></div>
+        <div class="hexa disabled-hexa"></div>
+      </div>
+      <div class="hexa-container">
+        <div class="hexa disabled-hexa"></div>
+        <div class="hexa disabled-hexa"></div>
+        <div class="hexa disabled-hexa"></div>
+      </div>
+      <div class="hexa-container even-container">
+        <% cultures.each_with_index do |culture, i| %>
+          <%= link_to culture_path(culture.id) do %>
+            <% if i <= 1%>
+              <div class="hexa">
+                <%= culture.name%>
+              </div>
+            <%end%>
+          <%end%>
+        <%end%>
+      </div>
+      <div class="hexa-container">
+        <div class="hexa disabled-hexa"></div>
+        <div class="hexa add-button" data-action="click->hexagones#addVegetable">
+          <i class="fa-solid fa-plus fs-1"></i>
+        </div>
+        <div class="hexa disabled-hexa"></div>
+      </div>
+      <div class="hexa-container even-container">
+        <div class="hexa disabled-hexa"></div>
+        <div class="hexa disabled-hexa"></div>
+      </div>
+    </div>
+    <!-- DIALOG -->
+    <div data-action="click->hexagones#backdropClose">
+      <dialog data-hexagones-target="dialog">
+        <p>The modal's content here</p>
+        <button type="button" data-action="hexagones#close" >Cancel</button>
+      </dialog>
+      <button type="button" data-action="hexagones#open">Open modal</button>
+    </div>
+  </div>
+</div>
+<!-- Dialog -->
+<!--
+<div data-controller="dialog" data-action="click->dialog#backdropClose">
+<dialog data-dialog-target="dialog">
+  <p>The modal's content here</p>
+  <button type="button" data-action="dialog#close" >Cancel</button>
+</dialog>
+<button type="button" data-action="dialog#open">Open modal</button>
+</div>
