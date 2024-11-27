@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_27_143031) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_27_153531) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,13 +61,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_27_143031) do
     t.string "name"
     t.text "description"
     t.date "date"
-    t.string "status"
     t.integer "order"
     t.string "category"
     t.bigint "culture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "delay"
+    t.boolean "done"
     t.index ["culture_id"], name: "index_tasks_on_culture_id"
   end
 

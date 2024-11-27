@@ -13,9 +13,11 @@ class CulturesController < ApplicationController
   end
 
   def create
-    # récupérer la master culture via les params : name, status master true
+    # On récupère la master culture via les params : name et master true
+    # @master_culture = Culture.find_by(name: params_culture[:name], master: true)
+    # Initialement on récupérait la master culture via les params : name, status master true
     @master_culture = Culture.find_by(name: params_culture[:name], status: params_culture[:status], master: true)
-    # besoin de garder le filtre de status ?
+
 
     # on assigne à la nouvelle culture les caractéristiques de master
     @new_culture = @master_culture.dup

@@ -2,10 +2,9 @@ class Task < ApplicationRecord
   belongs_to :culture
   validates :name, presence: true
   validates :description, presence: true
-  validates :order, presence: true # à vérifier l'utilité
+  # validates :order, presence: true / order n'est plus forcément utile
   validates :delay, presence: true
   after_create :set_date
-  # ajouter status "A faire" par défaut à la création
   # ajouter fait = false par défaut à la création
 
   CATEGORY = []
