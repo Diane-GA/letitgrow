@@ -13,3 +13,29 @@
 
 // Import style simple calendar
 @import "simple_calendar";
+
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.mobile-container {
+  width: 100%;
+  max-width: 767px;
+  min-height: 100vh;
+  padding: 20px 15px 70px 15px;
+}
+
+.rounded-50 {
+  border-radius: 50px;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
+.fs-150 {
+  font-size: 150px;
+}
