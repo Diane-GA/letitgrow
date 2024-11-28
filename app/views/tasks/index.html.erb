@@ -1,17 +1,15 @@
-<div class="container">
+<div class="container" data-controller="calendar">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <div class="col-xs-12 col-sm-2 col-sm-offset-2">
       <%= month_calendar events: @tasks do |date, tasks| %>
         <%= l(date, format: :default) %>
         <% tasks.each do |task| %>
-          <div>
+          <%= link_to tasks_path(date: task.date) do %>
+            <%= task.name %> tes
             <p>
-              <%= task.name %> tes
-              <%# <%= cl_image_tag(task.culture.photo.key,
-      width: 400, height: 300, crop: :fill) %> %>
               <%= task.culture.name %>s
             </p>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>

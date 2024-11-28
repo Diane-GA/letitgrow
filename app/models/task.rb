@@ -9,6 +9,11 @@ class Task < ApplicationRecord
 
   CATEGORY = []
 
+  # Permet de faire fonctionner simple calendar
+  def start_time
+    date
+  end
+  
   private
 
   # méthode qui attribue une date d'action en fonction du délai
@@ -24,8 +29,4 @@ class Task < ApplicationRecord
     self.update(done: false)
   end
 
-  # elle sert à quoi cette méthode ?
-  def start_time
-    date
-  end
 end
