@@ -11,6 +11,7 @@ class TasksController < ApplicationController
   end
 
   def description
+    @task = Task.find(params[:id])
   end
 
   def validate
