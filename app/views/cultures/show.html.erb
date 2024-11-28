@@ -1,10 +1,25 @@
-<div class="container">
-<h1>SHOW</h1>
-<%= @culture.name %>
-<%= @culture.plantation_date %>
-<%= @culture.in_ground %>
-<%= @culture.outdoor %>
-<%= @culture.status %>
-<%= @culture.user.username %>
-<%= link_to "Back to index", cultures_path %>
+<div class="mobile-container d-flex flex-column align-items-center gap-20">
+  <%= render "shared/side_panel_header", title: @culture.name %>
+  <div class="padding-horizontal-15">
+    <%= @culture.plantation_date %>
+    <%= @culture.in_ground %>
+    <%= @culture.outdoor %>
+    <%= @culture.status %>
+    <%= @culture.user.username %>
+  </div>
+  <div class="bg-primary rounded-top-40 padding-horizontal-15 pt-4 padding-bottom-120">
+    <h2 class="montserrat fs-5 fw-bold text-uppercase text-success m-0">Mes tâches</h2>
+    <!--<%= @tasks_reversed.inspect()%>-->
+    <ul class="fs-5 pt-4">
+      <% @tasks_reversed.each do |task|%>
+        <%= link_to validate_task_path(task.id) , data: { turbo_method: :patch } do%>
+          <li class="d-flex justify-content-between text-white">
+            <p><%= task.name%></p>
+            <p><%= task.date%></p>
+            <p><%= task.done%></p>
+          </li>
+        <%end%>
+      <%end%>
+    </ul>
+  </div>
 </div>

@@ -7,6 +7,7 @@ class CulturesController < ApplicationController
 
   def show
     @culture = Culture.find(params[:id])
+    @tasks_reversed = @culture.tasks.reverse
   end
 
   def new
