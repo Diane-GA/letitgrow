@@ -1,13 +1,3 @@
-<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20">
-  <%= month_calendar events: @tasks do |date, tasks| %>
-  <div class="d-flex flex-column calendar">
-    <%= l(date, format: :default) %>
-    <% tasks.each do |task| %>
-      <%= link_to tasks_path(date: task.date) do %>
-      <%= cl_image_tag(task.culture.photo.key.to_s, width: 20, height: 20, crop: :fill) %>
-        </p>
-      <% end %>
-    <% end %>
-  </div>
-  <% end %>
-</div>
+<div id="calendar" data-controller="calendar"></div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
