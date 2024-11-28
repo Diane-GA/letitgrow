@@ -11,7 +11,8 @@
       <ul><% value.each do |task| %>
         <li><%= task.name %>
           <%= link_to "Reporter", edit_task_path(task.id) %>
-          <%= link_to "Fait !", validate_task_path(task.id) %>
+          <%# TODO :  affichage conditionnel si done = false, sinon on voit pas le bouton %>
+          <%= link_to "Fait !", validate_task_path(task.id) , data: { turbo_method: :patch }%>
           <%= link_to "Détails", description_task_path(task.id) %>
         </li>
         <% end %>

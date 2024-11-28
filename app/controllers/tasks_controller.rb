@@ -15,6 +15,8 @@ class TasksController < ApplicationController
   end
 
   def validate
+    @task = Task.find(params[:id])
+    @task.update(done: true)
   end
 
   def index_date
