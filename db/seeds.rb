@@ -30,7 +30,6 @@ master_tomate = Culture.create!(name: "Tomate", plantation_date: "2024-11-28", i
 master_butternut = Culture.create!(name: "Butternut", plantation_date: "2024-11-28", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 # culture.photo.attach(io: URI.open(data[:photo]), filename: "#{data[:name].parameterize}.jpg", content_type: "image/jpeg")
 puts "========== 🔮 #{Culture.count} Cultures crée 🔮 ==================="
-
 puts "====== 🪄 Créations des Tasks associé aux cultures 🪄 ============"
 puts "============= 🌿 Task pour Master Ciboulette 🌿 ============"
 
