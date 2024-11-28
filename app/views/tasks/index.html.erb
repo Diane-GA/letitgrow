@@ -1,17 +1,13 @@
-<div class="container" data-controller="calendar">
-  <div class="row">
-    <div class="col-xs-12 col-sm-2 col-sm-offset-2">
-      <%= month_calendar events: @tasks do |date, tasks| %>
-        <%= l(date, format: :default) %>
-        <% tasks.each do |task| %>
-          <%= link_to tasks_path(date: task.date) do %>
-            <%= task.name %> tes
-            <p>
-              <%= task.culture.name %>s
-            </p>
-          <% end %>
-        <% end %>
+<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20">
+  <%= month_calendar events: @tasks do |date, tasks| %>
+  <div class="d-flex flex-column calendar">
+    <%= l(date, format: :default) %>
+    <% tasks.each do |task| %>
+      <%= link_to tasks_path(date: task.date) do %>
+      <%= cl_image_tag(task.culture.photo.key.to_s, width: 20, height: 20, crop: :fill) %>
+        </p>
       <% end %>
-    </div>
+    <% end %>
   </div>
+  <% end %>
 </div>
