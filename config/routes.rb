@@ -29,6 +29,9 @@ Rails.application.routes.draw do
       patch :validate
       get :description
     end
+    collection do
+      get :index_date
+    end
   end
 
   # page profile ne dépend pas d'un modèle donc pas resources
