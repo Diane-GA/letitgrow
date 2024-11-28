@@ -23,7 +23,7 @@ class CulturesController < ApplicationController
     @new_culture = @master_culture.dup
     # ajouter les valeurs à @new_culture
     @new_culture.master = false
-    @new_culture.update(plantation_date: params_culture[:plantation_date], in_ground: params_culture[:in_ground], outdoor: params_culture[:outdoor])
+    @new_culture.update(status: params_culture[:status], plantation_date: params_culture[:plantation_date], in_ground: params_culture[:in_ground], outdoor: params_culture[:outdoor])
 
     # on récupère les master tasks et on itère dessus
     @master_culture.tasks.each do |task|
@@ -42,7 +42,7 @@ class CulturesController < ApplicationController
   private
 
   def params_culture
-      params.require(:culture).permit(:name, :status, :in_ground, :outdoor, :plantation_date, :delay)
+      params.require(:culture).permit(:name, :status, :in_ground, :outdoor, :plantation_date)
   end
 
 end
