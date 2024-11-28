@@ -1,0 +1,61 @@
+.hexa-container {
+  --s: 100px;
+  /* taille des hexagones */
+  --m: 4px;
+  /* marge entre les hexagones */
+  --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
+
+  display: flex;
+  font-size: 0;
+}
+
+.even-container {
+  position: relative;
+  left: calc((var(--s) + var(--m)*2)/2);
+}
+
+.hexa {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s)*1.1547);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: initial;
+  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+  background: $green-forest;
+  color: $white;
+  margin-bottom: calc(var(--m) - var(--s)*0.2885);
+  cursor: pointer;
+}
+
+.hexa:hover {
+  /* Jungle green */
+  background: $dutch-white;
+  color: $black;
+}
+
+.hexa:active {
+  background: #a1bc83;
+  color: black;
+}
+
+.disabled-hexa {
+  filter: opacity(0.1);
+  cursor: none;
+  pointer-events: none;
+}
+
+.add-button {
+  background: transparent;
+  color: $green-forest;
+}
+
+.add-button:hover {
+  background: transparent;
+  color: $white;
+}
+
+.add-button:active {
+  opacity: 0.5;
+}

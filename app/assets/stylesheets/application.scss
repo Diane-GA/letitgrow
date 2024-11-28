@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import "config/input";
 
 // External libraries
 @import "bootstrap";
@@ -25,7 +26,7 @@
   width: 100%;
   max-width: 767px;
   min-height: 100vh;
-  padding: 20px 15px 70px 15px;
+  padding: 20px 15px 100px 15px;
 }
 
 .rounded-50 {
@@ -36,6 +37,30 @@
   gap: 20px;
 }
 
+.h-64 {
+  height: 64px;
+}
+
+.fs-64 {
+  font-size: 64px;
+}
+
 .fs-150 {
   font-size: 150px;
+}
+
+
+/* PAGE cultures index */
+
+.icon img {
+  /* width: 50px; */
+  height: 300px;
+  margin-bottom: 20px;
+  filter: invert(99%) sepia(7%) saturate(93%) hue-rotate(178deg) brightness(112%) contrast(91%);
+}
+
+
+/* Doit rester dans ce fichier sinon ça ne fonctionne pas */
+label {
+  display: none;
 }

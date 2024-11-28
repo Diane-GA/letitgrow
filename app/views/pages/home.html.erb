@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20">
+  <%= render "shared/title" %>
+  <div class="icon">
+    <%= image_tag "let-it-grow-logo.svg" %>
+  </div>
+  <% if user_signed_in? %>
+    <!-- TODO: Faire le contenu de la partial -->
+    <%= render "user_welcome"%>
+  <%else%>
+    <%= render "shared/login" %>
+  <%end%>
+</div>

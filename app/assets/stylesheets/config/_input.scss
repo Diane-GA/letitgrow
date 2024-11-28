@@ -1,0 +1,63 @@
+.custom-input {
+  width: 100%;
+  height: 64px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding: 30px;
+  background-color: transparent;
+  border-radius: 50px;
+}
+
+.checked-display-none {
+  display: none;
+}
+
+/* GREEN INPUT */
+
+.back-green-input {
+  color: $white;
+  border: 2px solid $green-forest;
+}
+
+.back-green-input::placeholder {
+  color: $white;
+  opacity: 0.5;
+  /* For Firefox */
+}
+
+.back-green-input::-webkit-input-placeholder {
+  /* Chrome, Safari, Opera */
+  color: $white;
+  opacity: 0.5;
+}
+
+.back-green-input:focus {
+  outline: none;
+  border-color: $dutch-white;
+  box-shadow: none;
+}
+
+/* GRAY INPUT */
+
+.back-gray-input {
+  color: $black;
+  border: 2px solid $sage;
+}
+
+.back-gray-input::placeholder {
+  color: $black;
+  opacity: 0.5;
+  /* For Firefox */
+}
+
+.back-gray-input::-webkit-input-placeholder {
+  /* Chrome, Safari, Opera */
+  color: $black;
+  opacity: 0.5;
+}
+
+.back-gray-input:focus {
+  outline: none;
+  border-color: $green-forest;
+  box-shadow: none;
+}
