@@ -84,3 +84,33 @@ ul {
   margin: unset;
   padding: unset;
 }
+
+.task-list:hover p {
+  color: $dutch-white;
+}
+
+
+/* Progress bar */
+
+.circular-progress {
+  transform: rotate(-90deg);
+  /* Rotate to start from the top */
+}
+
+.background {
+  stroke: #e6e6e6;
+  /* Background color */
+  stroke-width: 20;
+}
+
+.progress {
+  stroke: #4caf50;
+  /* Progress color */
+  stroke-width: 20;
+  stroke-dasharray: 628;
+  /* Circumference of the circle */
+  stroke-dashoffset: 314;
+  /* Adjust based on percentage */
+  transition: stroke-dashoffset 0.5s ease;
+  /* Animation */
+}

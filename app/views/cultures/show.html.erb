@@ -6,17 +6,22 @@
     <%= @culture.outdoor %>
     <%= @culture.status %>
     <%= @culture.user.username %>
+    <svg class="circular-progress" width="250" height="250">
+      <circle class="background" cx="125" cy="125" r="100" />
+      <circle class="progress" cx="125" cy="125" r="100" />
+    </svg>
   </div>
   <div class="bg-primary rounded-top-40 padding-horizontal-15 pt-4 padding-bottom-120">
     <h2 class="montserrat fs-5 fw-bold text-uppercase text-success m-0">Mes tâches</h2>
     <!--<%= @tasks_reversed.inspect()%>-->
     <ul class="fs-5 pt-4">
       <% @tasks_reversed.each do |task|%>
-        <%= link_to validate_task_path(task.id) , data: { turbo_method: :patch } do%>
-          <li class="d-flex justify-content-between text-white">
-            <p><%= task.name%></p>
-            <p><%= task.date%></p>
-            <p><%= task.done%></p>
+        <!-- TODO: Hotwire reload -->
+        <%= link_to validate_task_path(task.id) , data: { turbo_method: :patch }, class: "text-decoration-none" do%>
+          <li class="task-list d-flex justify-content-between align-items-center text-white p-1 <%= task.done ? 'opacity-50' : ''%>">
+            <p class="m-0"><%= task.name%></p>
+            <p class="m-0"><%= task.date%></p>
+            <i class="<%= task.done ? "fa-solid fa-square-check" : "fa-regular fa-square"%>"></i>
           </li>
         <%end%>
       <%end%>
