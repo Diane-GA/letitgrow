@@ -3,7 +3,7 @@
   <% if user_signed_in? %>
     <p>Hello <%= current_user.username%></p>
     <i class="fa-solid fa-user fs-150 color-sage"></i>
-    <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-outline-danger w-100 rounded-50" %>
+    <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-outline-danger w-100 h-64 rounded-50 p-3 fs-5" %>
   <% else %>
     <%= link_to "Login", new_user_session_path, class: "nav-link" %>
   <% end %>
