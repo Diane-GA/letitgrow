@@ -4,6 +4,7 @@ class TasksController < ApplicationController
     # s'il n'y a pas de params on envoi toutes les taches
     # utile pour la page /tasks qui les affiche sur calendrier
     @tasks = Task.all
+    @tasks = @tasks.select{ |task| task.culture.user == current_user }
 
     # s'il y a des params alors on récupère la date dans les params
     # et on envoi vers notre methode spéciale et sa view
