@@ -4,6 +4,7 @@ class TasksController < ApplicationController
     # s'il n'y a pas de params on envoi toutes les taches
     # utile pour la page /tasks qui les affiche sur calendrier
     @tasks = Task.all
+    @tasks = @tasks.select{ |task| task.culture.user == current_user }
 
     # s'il y a des params alors on récupère la date dans les params
     # et on envoi vers notre methode spéciale et sa view
@@ -48,7 +49,9 @@ class TasksController < ApplicationController
 
   def index_date
     # on récupère les tasks en filtrant avec la date : where(date: xxxx)
-    @tasks = Task.where(date: params[:date])
+    @tasks = Task.includes(:culture).where(date: params[:date])
+    # on filtre les tache du current_user
+    @tasks = @tasks.select{|task| task.culture.user == current_user}
     # on regroupe les tasks par culture pour l'affichage, ça nous retourne un hash
     # la key: sera le nom de la culture, la valeur associée sera un [] de taches
     # qui sont associées à la culture (key:) et à la date filtrée
