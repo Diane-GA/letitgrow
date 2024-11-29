@@ -2,11 +2,14 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="calendar"
 export default class extends Controller {
-  connect() {
-    console.log(this.current);
-    console.log(typeof moment); // Doit afficher "function"
-    console.log(moment().date(1).format());
 
+  static values = {
+    tasks: Array
+  }
+
+  connect() {
+
+    console.log(this.tasksValue);
 
 
 
@@ -17,9 +20,19 @@ export default class extends Controller {
       function Calendar(selector, events) {
         this.el = document.querySelector(selector);
         this.events = events;
-        this.current = moment().startOf('month'); // Initialise avec le premier jour du mois
-        console.log(this.current); // Vérifiez qu'il contient une date valide
+        this.current = moment().date(1);
+        this.events.forEach(function(ev) {
+         ev.date = moment(ev.date);
+        });
         this.draw();
+        var current = document.querySelector('.today');
+        if(current) {
+          var self = this;
+          window.setTimeout(function() {
+            self.openDay(current);
+          }, 500);
+        }
+
       }
 
       Calendar.prototype.draw = function() {
@@ -60,12 +73,6 @@ export default class extends Controller {
       Calendar.prototype.drawMonth = function() {
         var self = this;
 
-        this.events.forEach(function(ev) {
-          const daysInMonth = self.current.daysInMonth();
-          ev.date = self.current.clone().date(Math.floor(Math.random() * daysInMonth) + 1);
-
-        });
-
 
         if(this.month) {
           this.oldMonth = this.month;
@@ -97,8 +104,7 @@ export default class extends Controller {
 
         if(!dayOfWeek) { return; }
 
-        clone.subtract(dayOfWeek + 1, 'days');
-
+        clone.subtract('days', dayOfWeek+1);
 
         for(var i = dayOfWeek; i > 0 ; i--) {
           this.drawDay(clone.add('days', 1));
@@ -106,7 +112,7 @@ export default class extends Controller {
       }
 
       Calendar.prototype.fowardFill = function() {
-        var clone = this.current.clone().add(1, 'months').subtract(1, 'days');
+        var clone = this.current.clone().add('months', 1).subtract('days', 1);
         var dayOfWeek = clone.day();
 
         if(dayOfWeek === 6) { return; }
@@ -322,43 +328,55 @@ export default class extends Controller {
           ele.className = className;
         }
         if(innerText) {
-          ele.innderText = ele.textContent = innerText;
+          ele.innerText = ele.textContent = innerText;
         }
         return ele;
       }
     }();
 
+
+    // let date = this.tasksValue[0].date;
+    // let description = this.tasksValue[0].description;
+    let data = [];
+    this.tasksValue.forEach(element => {
+      let data_date = { eventName: element.description, calendar: element.name, color: 'orange', date: element.date };
+      data.push(data_date)
+    });
+
     !function() {
-      var data = [
-        { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
-        { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange' },
-        { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange' },
-        { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange' },
-
-        { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue' },
-        { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue' },
-        { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue' },
-        { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue' },
-
-        { eventName: 'School Play', calendar: 'Kids', color: 'yellow' },
-        { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow' },
-        { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow' },
-        { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow' },
-
-        { eventName: 'Free Tamale Night', calendar: 'Other', color: 'green' },
-        { eventName: 'Bowling Team', calendar: 'Other', color: 'green' },
-        { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green' },
-        { eventName: 'Startup Weekend', calendar: 'Other', color: 'green' }
-      ];
 
 
 
-      function addDate(ev) {
+      // var data = [
+      //     { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange', date: date },
+      //     { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange', date: '2014-03-08' },
+      //     { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange', date: '2014-02-13' },
+      //     { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange', date: '2014-02-19' },
 
-      }
+      //   { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue', date: '2014-02-28' },
+      //   { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue', date: '2014-03-19' },
+      //   { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue', date: '2014-02-04' },
+      //   { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue', date: '2014-02-01' },
+
+      //   { eventName: 'School Play', calendar: 'Kids', color: 'yellow', date: '2014-02-25' },
+      //   { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow', date: '2014-02-19' },
+      //   { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow', date: '2014-03-31' },
+      //   { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow', date: '2014-02-20' },
+
+      //   { eventName: 'Free Tamale Night', calendar: 'Other', color: 'green', date: '2014-02-08' },
+      //   { eventName: 'Bowling Team', calendar: 'Other', color: 'green', date: '2014-02-10' },
+      //   { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green', date: '2014-03-04' },
+      //   { eventName: 'Startup Weekend', calendar: 'Other', color: 'green', date: '2014-03-17' }
+      // ];
+
+      data
 
       var calendar = new Calendar('#calendar', data);
 
+
+
     }();
+
+
   }
 }
