@@ -1,12 +1,25 @@
-<div class="container">
-  <h1>SHOW</h1>
-  <%= @culture.name %>
-  <%= @culture.plantation_date %>
-  <%= @culture.in_ground %>
-  <%= @culture.outdoor %>
-  <%= @culture.status %>
-  <%= @culture.user.username %>
-  <%= link_to "Back to index", cultures_path %>
-  <%= link_to "Ajouter une tâche", new_culture_task_path(@culture) %>
-
+<div class="mobile-container d-flex flex-column align-items-center gap-20">
+  <%= render "shared/side_panel_header", title: @culture.name %>
+  <%= render "progress_bar_circular"%>
+  <div class="d-flex flex-column align-items-center text-primary fs-5">
+    <p>La culture a <%= @age%> jours</p>
+    <p><%= @culture.in_ground ? "En terre" : "En pot" %></p>
+    <p><%= @culture.outdoor ? "Extérieur" : "Intérieur" %></p>
+  </div>
+  <div class="bg-primary rounded-top-40 padding-horizontal-15 pt-4 padding-bottom-120">
+    <h2 class="montserrat fs-5 fw-bold text-uppercase text-success m-0">Mes tâches</h2>
+    <ul class="fs-5 pt-4">
+      <% @tasks_reversed.each do |task|%>
+        <!-- TODO: Hotwire reload -->
+        <%= link_to validate_task_path(task.id) , data: { turbo_method: :patch }, class: "text-decoration-none" do%>
+          <li class="task-list d-flex justify-content-between align-items-center text-white p-1 <%= task.done ? 'opacity-50' : ''%>">
+            <p class="m-0"><%= task.name%></p>
+            <!-- TODO: Utiliser Intl.DateTimeFormat en JS pour les -->
+            <p class="m-0"><%= task.date.to_formatted_s(:short) %></p>
+            <i class="<%= task.done ? "fa-solid fa-square-check" : "fa-regular fa-square"%>"></i>
+          </li>
+        <%end%>
+      <%end%>
+    </ul>
+  </div>
 </div>

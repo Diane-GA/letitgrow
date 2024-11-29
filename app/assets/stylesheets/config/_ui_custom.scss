@@ -1,0 +1,24 @@
+.rounded-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: $sage;
+  color: $white;
+  text-decoration: none;
+}
+
+.position-left {
+  position: absolute;
+  left: 15px;
+}
+
+.rounded-button:hover {
+  opacity: 0.8;
+}
+
+.rounded-button:focus {
+  opacity: 0.5;
+}
