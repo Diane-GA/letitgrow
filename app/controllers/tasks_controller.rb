@@ -11,12 +11,12 @@ class TasksController < ApplicationController
   end
 
   def new
-    @culture = Culture.find_by(params[:culture_id])
+    @culture = Culture.find(params[:culture_id])
     @task = Task.new
   end
 
   def create
-    @culture = Culture.find_by(params[:culture_id])
+    @culture = Culture.find(params[:culture_id])
     @task = Task.new(task_params)
     @task.category = "Custom"
     @task.culture = @culture

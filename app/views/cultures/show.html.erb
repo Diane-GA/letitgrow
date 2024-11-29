@@ -7,6 +7,6 @@
   <%= @culture.status %>
   <%= @culture.user.username %>
   <%= link_to "Back to index", cultures_path %>
-  <%= link_to "Ajouter une tâche", cultures_path %>
+  <%= link_to "Ajouter une tâche", new_culture_task_path(@culture) %>
 
 </div>
