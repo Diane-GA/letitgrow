@@ -48,7 +48,9 @@ class TasksController < ApplicationController
 
   def index_date
     # on récupère les tasks en filtrant avec la date : where(date: xxxx)
-    @tasks = Task.where(date: params[:date])
+    @tasks = Task.includes(:culture).where(date: params[:date])
+    # on filtre les tache du current_user
+    @tasks = @tasks.select{|task| task.culture.user == current_user}
     # on regroupe les tasks par culture pour l'affichage, ça nous retourne un hash
     # la key: sera le nom de la culture, la valeur associée sera un [] de taches
     # qui sont associées à la culture (key:) et à la date filtrée
