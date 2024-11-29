@@ -46,6 +46,10 @@ class CulturesController < ApplicationController
     redirect_to culture_path(@new_culture)
   end
 
+  def destroy
+    @culture = Culture.find(params[:id])
+  end
+
   private
 
   def params_culture

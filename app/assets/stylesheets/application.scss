@@ -71,12 +71,7 @@
   filter: invert(99%) sepia(7%) saturate(93%) hue-rotate(178deg) brightness(112%) contrast(91%);
 }
 
-
-/* Doit rester dans ce fichier sinon ça ne fonctionne pas */
-label {
-  display: none;
-}
-
+/* Doit rester dans ce fichier sinon ça ne fonctionne pas *
 /* cultures show */
 
 ul {
@@ -88,3 +83,8 @@ ul {
 .task-list:hover p {
   color: $dutch-white;
 }
+
+// label {
+//   display: none;
+// }
+

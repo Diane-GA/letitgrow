@@ -1,8 +1,8 @@
 class Culture < ApplicationRecord
-  has_ancestry
   belongs_to :user
   has_many :tasks, dependent: :destroy
   validates :name, presence: true
+  validates :plantation_date, presence: true
   has_one_attached :photo
 
   after_create_commit :reset_plantation_date
