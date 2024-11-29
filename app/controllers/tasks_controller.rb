@@ -30,7 +30,7 @@ class TasksController < ApplicationController
   end
 
   def index_date
-    # puis on récupère les tasks en filtrant avec cette date : where(date: xxxx)
+    # on récupère les tasks en filtrant avec la date : where(date: xxxx)
     @tasks = Task.where(date: params[:date])
     # on regroupe les tasks par culture pour l'affichage, ça nous retourne un hash
     # la key: sera le nom de la culture, la valeur associée sera un [] de taches
