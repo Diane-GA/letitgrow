@@ -5,16 +5,8 @@
     <p>La culture a <%= @age%> jours</p>
     <p><%= @culture.in_ground ? "En terre" : "En pot" %></p>
     <p><%= @culture.outdoor ? "Extérieur" : "Intérieur" %></p>
-    <div>
-      <!-- DELETE ne fonction pas-->
-      <%= link_to culture_path(@culture),
-                data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"},
-                class:"rounded-button float-end" do %>
-        <i class="fa-solid fa-trash"></i>
-      <% end %>
-    </div>
   </div>
-  <div class="bg-primary rounded-top-40 padding-horizontal-15 pt-4 padding-bottom-120 text-success">
+  <div class="bg-primary w-100 rounded-top-40 padding-horizontal-15 pt-5 padding-bottom-120 text-success">
     <div class="d-flex justify-content-between align-items-center">
       <h2 class="montserrat fs-5 fw-bold text-uppercase m-0">Mes tâches</h2>
       <%= link_to new_culture_task_path(@culture) do %>
