@@ -49,6 +49,8 @@ class CulturesController < ApplicationController
 
   def destroy
     @culture = Culture.find(params[:id])
+    @culture.destroy
+    redirect_to cultures_path, status: :see_other
   end
 
   private
