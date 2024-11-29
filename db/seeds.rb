@@ -26,13 +26,13 @@ puts "========== 🪄 #{User.count} users crées ! 🪄 ==================="
 
 puts "========== 🔮 Créations des Cultures 🔮 ============"
 
-master_ciboulette = Culture.create!(name: "Ciboulette", plantation_date: "2024-11-28", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_ciboulette = Culture.create!(name: "Ciboulette", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_ciboulette.photo.attach(io: URI.open("https://images.unsplash.com/photo-1719722628937-4e83eade87f6?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "ciboulette.jpg", content_type: "image/jpeg")
 
-master_tomate = Culture.create!(name: "Tomate", plantation_date: "2024-11-28", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_tomate = Culture.create!(name: "Tomate", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_tomate.photo.attach(io: URI.open("https://images.unsplash.com/photo-1534940519139-f860fb3c6e38?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "tomate.jpg", content_type: "image/jpeg")
 
-master_butternut = Culture.create!(name: "Butternut", plantation_date: "2024-11-28", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_butternut = Culture.create!(name: "Butternut", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_butternut.photo.attach(io: URI.open("https://images.unsplash.com/photo-1575679472639-3f3fc9b86bf6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "butternut.jpg", content_type: "image/jpeg")
 
 puts "========== 🔮 #{Culture.count} Cultures crée 🔮 ==================="
@@ -47,7 +47,7 @@ Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humi
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 12, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 14, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 20, culture: master_ciboulette)
-Task.create!(name: "Désherber", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 3, culture: master_ciboulette)
+Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour des tiges de ciboulette pour éviter la concurrence", date: nil, done: false,  order: nil, category: "Arroser", delay: 3, culture: master_ciboulette)
 Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour des tiges de ciboulette pour éviter la concurrence", date: nil, done: false,  order: nil, category: "Désherber", delay: 20, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 25, culture: master_ciboulette)
 Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour des tiges de ciboulette pour éviter la concurrence", date: nil, done: false,  order: nil, category: "Désherber", delay: 25, culture: master_ciboulette)

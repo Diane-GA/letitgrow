@@ -1,5 +1,4 @@
 class CulturesController < ApplicationController
-
   def index
     # on récupère toutes les cultures propre au user connecté
     @cultures = Culture.where(user: current_user)
@@ -7,6 +6,15 @@ class CulturesController < ApplicationController
 
   def show
     @culture = Culture.find(params[:id])
+    @tasks_reversed = @culture.tasks.reverse
+    if @culture.status == "Graine"
+      @progress_status = "seed"
+    elsif @culture.status == "Jeune plant"
+      @progress_status = "young"
+    else
+      @progress_status = "mature"
+    end
+    @age = (Date.today - @culture.plantation_date).to_i
   end
 
   def new
@@ -17,7 +25,6 @@ class CulturesController < ApplicationController
     @master_culture = Culture.find_by(name: params_culture[:name], master: true)
     # Initialement on récupérait la master culture via les params : name, status master true
     # @master_culture = Culture.find_by(name: params_culture[:name], status: params_culture[:status], master: true)
-
 
     # on assigne à la nouvelle culture les caractéristiques de master
     @new_culture = @master_culture.dup
@@ -39,10 +46,13 @@ class CulturesController < ApplicationController
     redirect_to culture_path(@new_culture)
   end
 
+  def destroy
+    @culture = Culture.find(params[:id])
+  end
+
   private
 
   def params_culture
-      params.require(:culture).permit(:name, :status, :in_ground, :outdoor, :plantation_date)
+    params.require(:culture).permit(:name, :status, :in_ground, :outdoor, :plantation_date)
   end
-
 end

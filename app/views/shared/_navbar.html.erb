@@ -3,7 +3,7 @@
     <i class="fa-solid fa-house color-sage"></i>
   <%end%>
   <!--TODO: lien tâches du jour -->
-  <%= link_to tasks_path, class: "text-decoration-none" do%>
+  <%= link_to tasks_path(date: Date.today), class: "text-decoration-none" do%>
     <i class="fa-solid fa-list color-sage"></i>
   <%end%>
   <%= link_to tasks_path, class: "text-decoration-none" do%>
