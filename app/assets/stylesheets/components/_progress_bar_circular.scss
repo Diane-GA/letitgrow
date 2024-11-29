@@ -1,0 +1,84 @@
+/* Progress bar */
+
+.progress-container {
+  height: 250px;
+  position: relative;
+}
+
+.circular-progress {
+  transform: rotate(-90deg);
+  /* Rotate to start from the top */
+}
+
+.background {
+  stroke: $white;
+  fill: transparent;
+  stroke-width: 20;
+}
+
+.progress {
+  fill: transparent;
+  stroke: $pumpkin;
+  /* Progress color */
+  stroke-width: 20;
+  stroke-dasharray: 628;
+  stroke-linecap: round;
+  /* Circumference of the circle */
+  /* Adjust based on percentage */
+  transition: stroke-dashoffset 0.5s ease;
+  /* Animation */
+}
+
+.seed {
+  stroke-dashoffset: 610;
+}
+
+.young {
+  stroke-dashoffset: 314;
+}
+
+.mature {
+  stroke-dashoffset: 50;
+}
+
+.circle-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: inherit;
+}
+
+.circle-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svg-container {
+  position: absolute;
+}
+
+.task-icon {
+  height: 36px;
+  width: 36px;
+  border: 5px solid $white;
+  border-radius: 50%;
+  background-color: $pumpkin;
+  position: relative;
+}
+
+.position-seed {
+  bottom: 238px;
+  right: -65px;
+}
+
+.position-young {
+  bottom: 44px;
+  right: -20px;
+}
+
+.position-mature {
+  bottom: 236px;
+  left: -5px;
+}

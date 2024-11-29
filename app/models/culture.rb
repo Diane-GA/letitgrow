@@ -18,12 +18,10 @@ class Culture < ApplicationRecord
       self.update(plantation_date: self.plantation_date - 25) # 25 jours entre graine et plant
     elsif self.name == "Tomate" && self.status == "Mature"
       self.update(plantation_date: self.plantation_date - 80) # 80 jours entre graine et plant
-
     elsif self.name == "Ciboulette" && self.status == "Jeune plant"
       self.update(plantation_date: self.plantation_date - 25) # 10 jours entre graine et plant
     elsif self.name == "Ciboulette" && self.status == "Mature"
       self.update(plantation_date: self.plantation_date - 40) # 40 jours entre graine et plant
-
     elsif self.name == "Butternut" && self.status == "Jeune plant"
       self.update(plantation_date: self.plantation_date - 25) # 25 jours entre graine et plant
     elsif self.name == "Butternut" && self.status == "Mature"
@@ -48,7 +46,7 @@ class Culture < ApplicationRecord
         self.update(status: "Mature")
       end
 
-    # change le statut de ciboulette selon son age
+      # change le statut de ciboulette selon son age
     elsif self.name == "Ciboulette"
       if age_plante > 25
         self.update(status: "Jeune plant")
@@ -56,7 +54,7 @@ class Culture < ApplicationRecord
         self.update(status: "Mature")
       end
 
-    # change le statut de butternut selon son age
+      # change le statut de butternut selon son age
     elsif self.name == "Butternut"
       if age_plante > 25
         self.update(status: "Jeune plant")
