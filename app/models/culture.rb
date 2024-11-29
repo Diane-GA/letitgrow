@@ -9,7 +9,8 @@ class Culture < ApplicationRecord
   after_create_commit :set_life_stage
 
   CULTURE_STATUS = ["Graine", "Jeune plant", "Mature"]
-  CULTURE_NAME = ["Pomme de terre", "Tomate", "Salade", "Poivron"] # mettre à jour la liste avec les noms des master cultures
+  CULTURE_NAME = ["Aubergine", "Butternut", "Carotte", "Ciboulette", "Citron", "Fraise", "Oignon", "Piment", "Pomme de Terre", "Tomate"]
+  # mettre à jour la liste avec les noms des master cultures
 
   # methode de classe pour reset la plantation_date (début de vie de la plante)
   # selon le status et la date rentrés par le user

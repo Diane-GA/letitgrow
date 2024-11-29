@@ -74,6 +74,8 @@
 /* Doit rester dans ce fichier sinon ça ne fonctionne pas *
 /* cultures show */
 
+
+/* Doit rester dans ce fichier sinon ça ne fonctionne pas */
 ul {
   list-style-type: none;
   margin: unset;
@@ -83,6 +85,7 @@ ul {
 .task-list:hover p {
   color: $dutch-white;
 }
+
 
 // label {
 //   display: none;
