@@ -10,6 +10,16 @@ class TasksController < ApplicationController
     redirect_to index_date_tasks_path(date: params[:date]) if params[:date].present?
   end
 
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+    redirect_to index_date_tasks_path(date: @task.date)
+  end
+
   def description
     @task = Task.find(params[:id])
   end
@@ -20,12 +30,18 @@ class TasksController < ApplicationController
   end
 
   def index_date
-    # puis on récupère les tasks en filtrant avec cette date : where(date: xxxx)
+    # on récupère les tasks en filtrant avec la date : where(date: xxxx)
     @tasks = Task.where(date: params[:date])
     # on regroupe les tasks par culture pour l'affichage, ça nous retourne un hash
     # la key: sera le nom de la culture, la valeur associée sera un [] de taches
     # qui sont associées à la culture (key:) et à la date filtrée
     @grouped_task = @tasks.group_by { |task| task.culture.name }
     @date = params[:date]
+  end
+
+  private
+
+  def task_params
+
   end
 end
