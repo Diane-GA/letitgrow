@@ -46,7 +46,7 @@ Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humi
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 12, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 14, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 20, culture: master_ciboulette)
-Task.create!(name: "Désherber", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 3, culture: master_ciboulette)
+Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour des tiges de ciboulette pour éviter la concurrence", date: nil, done: false,  order: nil, category: "Arroser", delay: 3, culture: master_ciboulette)
 Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour des tiges de ciboulette pour éviter la concurrence", date: nil, done: false,  order: nil, category: "Désherber", delay: 20, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 25, culture: master_ciboulette)
 Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour des tiges de ciboulette pour éviter la concurrence", date: nil, done: false,  order: nil, category: "Désherber", delay: 25, culture: master_ciboulette)

@@ -39,10 +39,14 @@ class CulturesController < ApplicationController
     redirect_to culture_path(@new_culture)
   end
 
+  def destroy
+    @culture = Culture.find(params[:id])
+  end
+
   private
 
   def params_culture
-      params.require(:culture).permit(:name, :status, :in_ground, :outdoor, :plantation_date)
+    params.require(:culture).permit(:name, :status, :in_ground, :outdoor, :plantation_date)
   end
 
 end
