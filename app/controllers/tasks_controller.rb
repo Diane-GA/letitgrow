@@ -10,6 +10,23 @@ class TasksController < ApplicationController
     redirect_to index_date_tasks_path(date: params[:date]) if params[:date].present?
   end
 
+  def new
+    @culture = Culture.find(params[:culture_id])
+    @task = Task.new
+  end
+
+  def create
+    @culture = Culture.find(params[:culture_id])
+    @task = Task.new(task_params)
+    @task.category = "Custom"
+    @task.culture = @culture
+    if @task.save!
+      redirect_to index_date_tasks_path(date: @task.date)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def edit
     @task = Task.find(params[:id])
   end
@@ -42,6 +59,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :date, :culture)
+    params.require(:task).permit(:name, :description, :date)
   end
 end

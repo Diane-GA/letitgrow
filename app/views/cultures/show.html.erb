@@ -1,10 +1,12 @@
 <div class="container">
-<h1>SHOW</h1>
-<%= @culture.name %>
-<%= @culture.plantation_date %>
-<%= @culture.in_ground %>
-<%= @culture.outdoor %>
-<%= @culture.status %>
-<%= @culture.user.username %>
-<%= link_to "Back to index", cultures_path %>
+  <h1>SHOW</h1>
+  <%= @culture.name %>
+  <%= @culture.plantation_date %>
+  <%= @culture.in_ground %>
+  <%= @culture.outdoor %>
+  <%= @culture.status %>
+  <%= @culture.user.username %>
+  <%= link_to "Back to index", cultures_path %>
+  <%= link_to "Ajouter une tâche", new_culture_task_path(@culture) %>
+
 </div>
