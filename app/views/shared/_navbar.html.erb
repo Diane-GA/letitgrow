@@ -1,14 +1,17 @@
-<nav class="down-navbar">
-  <%= link_to cultures_path do%>
-    <i class="fa-solid fa-house color-sage"></i>
-  <%end%>
-  <%= link_to tasks_path(date: Date.today) do%>
-    <i class="fa-solid fa-list color-sage"></i>
-  <%end%>
-  <%= link_to tasks_path do%>
-    <i class="fa-regular fa-calendar color-sage"></i>
-  <%end%>
-  <%= link_to profile_path do%>
-    <i class="fa-solid fa-user color-sage"></i>
-  <%end%>
-</nav>
+<% unless current_page?(root_path) %>
+  <!-- Code for new path -->
+  <nav class="down-navbar">
+    <%= link_to cultures_path do%>
+      <i class="fa-solid fa-house color-sage"></i>
+    <%end%>
+    <%= link_to tasks_path(date: Date.today) do%>
+      <i class="fa-solid fa-list color-sage"></i>
+    <%end%>
+    <%= link_to tasks_path do%>
+      <i class="fa-regular fa-calendar color-sage"></i>
+    <%end%>
+    <%= link_to profile_path do%>
+      <i class="fa-solid fa-user color-sage"></i>
+    <%end%>
+  </nav>
+<% end %>
