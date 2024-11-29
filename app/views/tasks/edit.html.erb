@@ -1,0 +1,6 @@
+<div class="mobile-container d-flex flex-column align-items-center gap-20">
+  <h2>Reporter ma tâche</h2>
+  <%# je veux réafficher le nom de la tâche puis un formulaire uniquement pour changer la date %>
+  <h4><%= @task.name %></h4>
+  <%= render "form", task: @task %>
+</div>
