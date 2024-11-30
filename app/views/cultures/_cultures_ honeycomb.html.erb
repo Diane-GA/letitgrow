@@ -6,10 +6,10 @@
 </ul>
 <!-- honeycomb  -->
 <!-- data-controller="hexagones"  -->
-<div  class="flex flex-col items-center">
+<div data-controller="honeycomb"  class="flex flex-col items-center">
   <div class="flex flex-col mt-6">
     <div class="hexa-container">
-      <div data-hexagones-target="vege1" class="hexa disabled-hexa"></div>
+      <div data-hexagones-target="vege1" class="hexa" data-action="click->honeycomb#open"></div>
       <div data-hexagones-target="vege2" class="hexa disabled-hexa"></div>
       <div data-hexagones-target="vege3" class="hexa disabled-hexa"></div>
     </div>
@@ -36,7 +36,7 @@
     <div class="hexa-container">
       <div class="hexa disabled-hexa"></div>
       <%= link_to new_culture_path do %>
-        <div class="hexa add-button"  data-action="click->hexagones#addVegetable">
+        <div class="hexa add-button"  data-action="click->honeycomb#greet">
           <i class="fa-solid fa-plus fs-1"></i>
         </div>
       <%end%>
@@ -46,14 +46,14 @@
       <div class="hexa disabled-hexa"></div>
       <div class="hexa disabled-hexa"></div>
     </div>
+    <!-- DIALOG -->
+    <div data-action="click->honeycomb#clickOutside">
+      <dialog class="side-panel" data-honeycomb-target="dialog">
+        <div class="bg-primary">
+          <p>The modal's content here</p>
+          <button type="button" data-action="click->honeycomb#close" >Cancel</button>
+        </div>
+      </dialog>
+    </div>
+    <!-- DIALOG -->
   </div>
-  <!-- DIALOG -->
-  <!--
-  <div data-action="click->hexagones#backdropClose">
-    <dialog data-hexagones-target="dialog">
-      <p>The modal's content here</p>
-      <button type="button" data-action="hexagones#close" >Cancel</button>
-    </dialog>
-    <button type="button" data-action="hexagones#open">Open modal</button>
-  </div>
-</div> -->
