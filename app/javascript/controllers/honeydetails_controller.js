@@ -1,33 +1,29 @@
 import { Controller } from "@hotwired/stimulus"
 import { useTransition } from "stimulus-use"
 
-// Connects to data-controller="honeycomb"
+// Connects to data-controller="honeydetails"
 export default class extends Controller {
-  static targets = ["dialog"]
-
   connect() {
     useTransition(this, {
-      element: this.dialogTarget,
       enterActive: "ease-out duration-300 translate-x-0",
       enterFrom: "translate-x-100",
       leaveActive: "ease-in duration-200 translate-x-100",
       leaveFrom: "translate-x-0"
     })
-  }
-
-  open() {
     this.enter()
-    this.dialogTarget.showModal()
+    document.addEventListener('turbo:before-cache', () => this.leaveAnim());
   }
 
-  async close() {
-    await this.leave()
-    this.dialogTarget.close()
+  leaveAnim() {
+    this.leave()
   }
 
-  clickOutside(event) {
-    if (event.target === this.dialogTarget) {
-      this.close()
-    }
+  async disconnect() {
+    document.addEventListener('turbo:load', () => this.leaveAnim());
   }
+
+  get isPreview() {
+    return document.documentElement.hasAttribute('data-turbolinks-preview')
+  }
+
 }

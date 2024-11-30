@@ -3,6 +3,10 @@ body:has(.side-panel[open]) {
   overflow: hidden;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 /* Customize the dialog backdrop */
 .side-panel {
   position: fixed;
@@ -16,16 +20,6 @@ body:has(.side-panel[open]) {
   margin: 0;
   /* inset-inline-start: unset; */
   background-color: $gray-mouse;
-}
-
-@keyframes slide-in {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-
-@keyframes slide-out {
-  from { transform: translateX(0); }
-  to { transform: translateX(100%); }
 }
 
 /* ANIMATION */
