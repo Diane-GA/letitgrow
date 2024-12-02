@@ -16,19 +16,19 @@ class Task < ApplicationRecord
 
   def category_picto()
     if self.category == "Planter"
-      return 'fa-light fa-shovel'
+      return 'fa-regular fa-shovel'
     elsif self.category == "Arroser"
-      return 'fa-light fa-droplet'
+      return 'fa-regular fa-droplet'
     elsif self.category == "Tailler"
-      return 'fa-sharp fa-light fa-scissors'
+      return 'fa-regular fa-scissors'
     elsif self.category == "Encourager"
-      return 'fa-sharp fa-light fa-life-ring'
+      return 'fa-regular fa-life-ring'
     elsif self.category == "Protéger"
-      return 'fa-light fa-shield-check'
+      return 'fa-regular fa-shield-check'
     elsif self.category == "Récolter"
-      return 'fa-light fa-hand-spock'
+      return 'fa-regular fa-hand-spock'
     elsif self.category == "Arracher"
-      return 'fa-light fa-hourglass-end'
+      return 'fa-regular fa-hourglass-end'
     end
   end
 
