@@ -10,6 +10,7 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
@@ -45,6 +46,10 @@
 
 .h-64 {
   height: 64px;
+}
+
+.fs-54 {
+  font-size: 54px;
 }
 
 .fs-64 {
@@ -100,6 +105,7 @@ ul {
   height: 40px;
 
 }
+
 .task-list:hover p {
   color: $dutch-white;
 }
@@ -107,6 +113,7 @@ ul {
 a {
   text-decoration: none;
 }
+
 // label {
 //   display: none;
 // }
