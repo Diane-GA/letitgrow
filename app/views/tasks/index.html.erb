@@ -5,7 +5,7 @@
       <div class="d-flex flex-column align-items-center gap-1-px">
         <% tasks.each do |task| %>
           <%= link_to tasks_path(date: task.date), class: "link-pill" do %>
-            <span class="badge rounded-pill text-bg-primary fs-7 text-white"><%= task.name %></span>
+            <span class="badge rounded-pill text-bg-primary fs-7 text-white"><i class='<%= task.category_picto%>'></i><%= task.name %></span>
           <% end %>
         <% end %>
       </div>
