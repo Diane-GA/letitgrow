@@ -61,3 +61,10 @@
   border-color: $green-forest;
   box-shadow: none;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 25px;
+  height: 25px;
+  filter: invert(1);
+  right: 2px;
+}
