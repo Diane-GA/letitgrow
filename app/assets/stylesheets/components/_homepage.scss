@@ -1,0 +1,51 @@
+.long-card {
+  width: 90%;
+  height: 125px;
+  padding : 15px;
+  margin : 3px;
+  border-radius: 5px;
+}
+
+
+.welcome-card {
+  box-shadow: 3px 3px 3px rgba(45, 45, 45, 0.5);
+  background-color: $green-forest ;
+
+  a {
+    color : white;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  .greeting {
+    font-size: 25px;
+    font-family: "Crimson Pro", serif;
+  }
+
+  i {
+    font-size: 40px;
+  }
+}
+
+
+.meteo_card {
+  margin : 5px;
+  padding : 15px;
+  width : 45%;
+  border-radius: 5px;
+  border : solid;
+  border-color: $green-forest;
+  box-shadow: 3px 3px 3px rgba(45, 45, 45, 0.5);
+}
+
+.advice-card{
+  margin : 5px;
+  padding : 15px;
+  width : 45%;
+  border-radius: 5px;
+  border : solid;
+  border-color: $green-forest;
+  box-shadow: 3px 3px 3px rgba(45, 45, 45, 0.5);
+}
