@@ -1,0 +1,82 @@
+.simple-calendar {
+  .link-pill {
+    font-size: 0px;
+  }
+
+  .month {
+    background-color: $primary;
+  }
+
+  th {
+    text-align: center !important;
+    font-size: 14px;
+  }
+
+  tr {
+    max-height: 14vw;
+  }
+
+  td {
+    padding: 2px !important;
+    vertical-align: top;
+    width: 14%;
+    max-width: 14vw;
+    max-height: 14vw;
+    border: 1px solid #ddd;
+    border-top-color: #dddddd;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: #dddddd;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: #dddddd;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: #dddddd;
+    border-left-style: solid;
+    border-left-width: 1px;
+  }
+
+  .day {
+    color: $green-forest;
+    overflow: hidden
+  }
+
+  .day-content {
+    max-height: 80px;
+    overflow: hidden
+  }
+
+  .wday-0 {}
+
+  .wday-1 {}
+
+  .wday-2 {}
+
+  .wday-3 {}
+
+  .wday-4 {}
+
+  .wday-5 {}
+
+  .wday-6 {}
+
+  .today {
+    color: $pumpkin;
+    background: $dutch-white !important;
+  }
+
+  .past {}
+
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+
+  .next-month {}
+
+  .current-month {}
+
+  .has-events {}
+}

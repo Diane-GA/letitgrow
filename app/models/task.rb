@@ -14,6 +14,24 @@ class Task < ApplicationRecord
     date
   end
 
+  def category_picto()
+    if self.category == "Planter"
+      return 'fa-regular fa-shovel'
+    elsif self.category == "Arroser"
+      return 'fa-regular fa-droplet'
+    elsif self.category == "Tailler"
+      return 'fa-regular fa-scissors'
+    elsif self.category == "Encourager"
+      return 'fa-regular fa-life-ring'
+    elsif self.category == "Protéger"
+      return 'fa-regular fa-shield-check'
+    elsif self.category == "Récolter"
+      return 'fa-regular fa-hand-spock'
+    elsif self.category == "Arracher"
+      return 'fa-regular fa-hourglass-end'
+    end
+  end
+
   private
 
   # méthode qui attribue une date d'action en fonction du délai

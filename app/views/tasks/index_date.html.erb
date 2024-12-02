@@ -13,7 +13,9 @@
       <br>
       <%# itère sur les taches associées à cette culture pour afficher leur nom %>
       <ul><% value.each do |task| %>
-        <li><%= task.name %>
+        <li>
+          <i class='<%= task.category_picto%>'></i>
+          <%= task.name %>
           <%= link_to "Reporter", edit_task_path(task.id) %>
           <%# TODO :  affichage conditionnel si done = false, sinon on voit pas le bouton %>
           <%= link_to "Fait !", validate_task_path(task.id) , data: { turbo_method: :patch }%>

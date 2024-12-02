@@ -4,6 +4,8 @@
     <title><%= content_for(:title) || "Letitgrow" %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="turbo-refresh-method" content="morph">
+    <meta name="turbo-refresh-scroll" content="preserve">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= yield :head %>
@@ -14,11 +16,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://kit.fontawesome.com/397dfae160.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <div class="app-container">
+    <div class="app-container overflow-x-hidden">
       <%= yield %>
     </div>
   </body>
