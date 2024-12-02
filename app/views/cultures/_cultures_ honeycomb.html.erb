@@ -1,59 +1,46 @@
-<ul class="text-white">
-  <% cultures.each do |culture| %>
-    <%# Ajout lien vers la show %>
-    <li><%= link_to culture.name, culture_path(culture.id), class: "text-white" %></li>
-  <% end %>
-</ul>
 <!-- honeycomb  -->
 <!-- data-controller="hexagones"  -->
-<div  class="flex flex-col items-center">
+<div class="flex flex-col items-center">
   <div class="flex flex-col mt-6">
     <div class="hexa-container">
-      <div data-hexagones-target="vege1" class="hexa disabled-hexa"></div>
-      <div data-hexagones-target="vege2" class="hexa disabled-hexa"></div>
-      <div data-hexagones-target="vege3" class="hexa disabled-hexa"></div>
+      <!-- 12 - 13 -->
+      <%= render "repeated_hexa", cultures:, startrange: 11, endrange: 13, numberplace: 3 %>
+      <!-- TODO: À retirer : 14 TEST DIALOG SIDE PANEL -->
+      <!-- <div class="hexa" data-action="click->honeycomb#open"></div> -->
     </div>
     <div class="hexa-container even-container">
-      <div data-hexagones-target="vege4" class="hexa disabled-hexa"></div>
-      <div class="hexa disabled-hexa"></div>
+      <!-- 10 - 11 -->
+      <%= render "repeated_hexa", cultures:, startrange: 9, endrange: 10, numberplace: 2 %>
     </div>
     <div class="hexa-container">
-      <div class="hexa disabled-hexa"></div>
-      <div class="hexa disabled-hexa"></div>
-      <div class="hexa disabled-hexa"></div>
+      <!-- 7 - 8 - 9-->
+      <%= render "repeated_hexa", cultures:, startrange: 6, endrange: 8, numberplace: 3 %>
     </div>
     <div class="hexa-container even-container">
-      <% cultures.each_with_index do |culture, i| %>
-        <%= link_to culture_path(culture.id) do %>
-          <% if i <= 1%>
-            <div class="hexa">
-              <%= culture.name%>
-            </div>
-          <%end%>
-        <%end%>
-      <%end%>
+      <!-- 1 - 2 -->
+      <%= render "repeated_hexa", cultures:, startrange: 0, endrange: 1, numberplace: 2 %>
     </div>
     <div class="hexa-container">
-      <div class="hexa disabled-hexa"></div>
+      <!-- 3 -->
+      <%= render "repeated_hexa", cultures:, startrange: 2, endrange: 2, numberplace: 1 %>
+      <!-- ADD BUTTON-->
       <%= link_to new_culture_path do %>
-        <div class="hexa add-button"  data-action="click->hexagones#addVegetable">
+        <div class="hexa add-button">
           <i class="fa-solid fa-plus fs-1"></i>
         </div>
       <%end%>
-      <div class="hexa disabled-hexa"></div>
+      <!-- 4 -->
+      <%= render "repeated_hexa", cultures:, startrange: 3, endrange: 3, numberplace: 1 %>
     </div>
     <div class="hexa-container even-container">
-      <div class="hexa disabled-hexa"></div>
-      <div class="hexa disabled-hexa"></div>
+      <!-- 5 - 6 -->
+      <%= render "repeated_hexa", cultures:, startrange: 4, endrange: 5, numberplace: 2 %>
     </div>
   </div>
-  <!-- DIALOG -->
-  <!--
-  <div data-action="click->hexagones#backdropClose">
-    <dialog data-hexagones-target="dialog">
-      <p>The modal's content here</p>
-      <button type="button" data-action="hexagones#close" >Cancel</button>
-    </dialog>
-    <button type="button" data-action="hexagones#open">Open modal</button>
-  </div>
-</div> -->
+</div>
+<!-- DIALOG -->
+<div data-action="click->honeycomb#clickOutside">
+  <dialog class="side-panel" data-honeycomb-target="dialog">
+  </dialog>
+</div>
+<!-- DIALOG -->

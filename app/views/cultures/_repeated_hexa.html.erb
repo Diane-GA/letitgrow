@@ -1,0 +1,18 @@
+<% cultures.each_with_index do |culture, i| %>
+  <%= link_to culture_path(culture) do %>
+    <% if i.between?(startrange, endrange)%>
+      <div class="hexa">
+        <%= culture.name%>
+      </div>
+    <%end%>
+  <%end%>
+<%end%>
+<%if cultures.length <= startrange%>
+  <% numberplace.times do %>
+    <div class="hexa disabled-hexa"></div>
+  <% end %>
+<%else %>
+  <% ((startrange + numberplace) - cultures.length).times do %>
+    <div class="hexa disabled-hexa"></div>
+  <% end %>
+<%end%>

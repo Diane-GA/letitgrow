@@ -1,17 +1,14 @@
-<div class="container" data-controller="calendar">
-  <div class="row">
-    <div class="col-xs-12 col-sm-2 col-sm-offset-2">
-      <%= month_calendar events: @tasks do |date, tasks| %>
-        <%= l(date, format: :default) %>
+<div class="mobile-container d-flex flex-column align-items-center gap-20 overflow-x-hidden padding-bottom-120" data-controller="calendar">
+  <%= turbo_frame_tag 'calendar' do %>
+    <%= month_calendar events: @tasks do |date, tasks| %>
+      <%= date.strftime("%d") %>
+      <div class="d-flex flex-column align-items-center gap-1-px">
         <% tasks.each do |task| %>
-          <%= link_to tasks_path(date: task.date) do %>
-            <%= task.name %> tes
-            <p>
-              <%= task.culture.name %>s
-            </p>
+          <%= link_to tasks_path(date: task.date), class: "link-pill" do %>
+            <span class="badge rounded-pill text-bg-primary fs-7 text-white"><%= task.name %></span>
           <% end %>
         <% end %>
-      <% end %>
-    </div>
-  </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
