@@ -27,10 +27,10 @@
   color: $white;
   margin-bottom: calc(var(--m) - var(--s)*0.2885);
   cursor: pointer;
+  border-radius: 20px;
 }
 
 .hexa:hover {
-  /* Jungle green */
   background: $dutch-white;
   color: $black;
 }
@@ -48,7 +48,7 @@
 
 .add-button {
   background: transparent;
-  color: $green-forest;
+  color: $white;
 }
 
 .add-button:hover {

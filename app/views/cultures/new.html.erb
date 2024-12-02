@@ -1,7 +1,7 @@
 
-<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20">
+<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20 padding-horizontal-15">
   <h1 class="fs-1 text-white fw-bold">Ma nouvelle culture</h1>
-  <%= form_with(model: Culture.new, local: true) do |f| %>
+  <%= form_with(model: Culture.new, local: true, class: "w-100") do |f| %>
     <div class="mb-3">
       <%= f.select :name, Culture::CULTURE_NAME,
                    { prompt: "Choisissez une culture", selected: Culture::CULTURE_STATUS.first },
