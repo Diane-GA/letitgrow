@@ -1,52 +1,55 @@
 
-<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20">
-  <h1 class="fs-1 text-white fw-bold">Ma nouvelle culture</h1>
-  <%= form_with(model: Culture.new, local: true) do |f| %>
-    <div class="mb-3">
+<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20 padding-horizontal-15">
+  <h1 class="fs-1 text-white fw-bold">Tu plantes quoi ?</h1>
+  <%= form_with(model: Culture.new, local: true, class:"w-100") do |f| %>
+    <div class="form_new_select">
+      <i class="fa-solid fa-chevron-down fa-2xl" style="color: #ffffff; position: absolute;right: 40px;top: 30px;font-size:1rem"></i>
       <%= f.select :name, Culture::CULTURE_NAME,
                    { prompt: "Choisissez une culture", selected: Culture::CULTURE_STATUS.first },
                    { class: "form-label custom-input back-green-input select_culture" } %>
     </div>
 
-    <div class="mb-3">
-      <%= f.label :plantation_date, "Date de plantation", class: "form-label" %>
-      <%= f.date_field :plantation_date, class: "custom-input back-green-input" %>
-    </div>
-
-    <div class="radio-container">
-      <div class="radio-group">
-        <div class="radio-option">
-          <%= f.radio_button :outdoor, 'true', class: 'form-check-input' %>
-          <%= f.label :outdoor, 'en extérieur', class: 'form-check-label' %>
-        </div>
-      <div class="radio-option">
-          <%= f.radio_button :in_ground, 'true', class: 'form-check-input' %>
-          <%= f.label :in_ground, "en pleine terre", class: 'form-check-label' %>
-        </div>
-      </div>
-
-      <div class="radio-group">
-        <div class="radio-option">
-          <%= f.radio_button :outdoor, 'false', class: 'form-check-input' %>
-          <%= f.label :outdoor, 'en intérieur', class: 'form-check-label' %>
-        </div>
-        <div class="radio-option">
-          <%= f.radio_button :in_ground, 'false', class: 'form-check-input' %>
-          <%= f.label :in_ground, 'en pot', class: 'form-check-label' %>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="mb-3">
-      <%= f.label :status, "Statut", class: "form-label" %>
+    <div class="form_new_select">
+      <i class="fa-solid fa-chevron-down fa-2xl" style="color: #ffffff; position: absolute;right: 40px;top: 30px;font-size:1rem"></i>
       <%= f.select :status, Culture::CULTURE_STATUS,
                    { prompt: "Choisissez un statut", selected: Culture::CULTURE_STATUS.first },
                    { class: "custom-input back-green-input select_culture"  } %>
     </div>
 
-    <div class="mb-3">
-      <%= f.submit "Ajouter cette culture", class: "btn btn-warning w-100 h-64 rounded-50 text-white p-3 fs-5" %>
+    <div class="">
+      <%= f.date_field :plantation_date, class: "custom-input back-green-input", value: Date.today%>
+    </div>
+
+  <div class= "form-container">
+    <div class="flight-types align-items-center w-100 ">
+    <div class="radio-group single-button h-64">
+      <div class="radio-option flight-type ">
+        <%= f.radio_button :in_ground, 'true', class: 'form-check-input' %>
+        <%= f.label :in_ground_true, "en terre", class: 'form-check-label' %>
+      </div>
+      <div class="radio-option flight-type ">
+        <%= f.radio_button :in_ground, 'false', class: 'form-check-input' %>
+        <%= f.label :in_ground_false, 'en pot', class: 'form-check-label' %>
+      </div>
+    </div>
+    </div>
+
+    <div class="flight-types  w-100 ">
+    <div class="radio-group single-button h-64">
+      <div class="radio-option flight-type ">
+        <%= f.radio_button :outdoor, 'true', class: 'form-check-input' %>
+        <%= f.label :outdoor_true, 'dehors', class: 'form-check-label' %>
+      </div>
+      <div class="radio-option flight-type ">
+        <%= f.radio_button :outdoor, 'false', class: 'form-check-input' %>
+        <%= f.label :outdoor_false, 'dedans', class: 'form-check-label' %>
+      </div>
+    </div>
+    </div>
+  </div>
+
+    <div class="">
+      <%= f.submit "Ça pousse !", class: "h-64 btn btn-warning w-100  rounded-50 text-white p-3 fs-5" %>
     </div>
   <% end %>
 </div>
