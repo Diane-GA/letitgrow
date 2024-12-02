@@ -1,14 +1,7 @@
-<div class="mobile-container d-flex flex-column align-items-center gap-20 overflow-x-hidden padding-bottom-120" data-controller="calendar">
-  <%= turbo_frame_tag 'calendar' do %>
-    <%= month_calendar events: @tasks do |date, tasks| %>
-      <%= date.strftime("%d") %>
-      <div class="d-flex flex-column align-items-center gap-1-px">
-        <% tasks.each do |task| %>
-          <%= link_to tasks_path(date: task.date), class: "link-pill" do %>
-            <span class="badge rounded-pill text-bg-primary fs-7 text-white"><%= task.name %></span>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
+
+<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20">
+<div id="calendar" data-controller="calendar"
+  data-calendar-tasks-value='<%= @tasks.to_json %>'>
 </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>

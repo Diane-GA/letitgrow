@@ -2,6 +2,7 @@
   <%= link_to culture_path(culture) do %>
     <% if i.between?(startrange, endrange)%>
       <div class="hexa">
+        <i class='<%= culture.culture_picto%>'></i>
         <%= culture.name%>
       </div>
     <%end%>

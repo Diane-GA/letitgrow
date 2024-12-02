@@ -33,7 +33,6 @@ class Culture < ApplicationRecord
   # methode de classe qui recalcule le stade de vie de la plante par rapport à today
   # pour l'afficher sur le cycle et le mettre à jour lors de la création (car la plantation_date
   # est recalculée à la création et le mettrait par défaut en "graine")
-
   def set_life_stage
     # calcul la différence entre today et la plantation_date
     today = Date.today
@@ -64,4 +63,16 @@ class Culture < ApplicationRecord
       end
     end
   end
+
+  # methode pour associer le picto correspondant à la culture
+  def culture_picto
+    if self.name == "Tomate"
+      return 'fi fi-rr-tomato'
+    elsif self.name == "Ciboulette"
+      return 'fi fi-rr-grass'
+    elsif self.name == "Butternut"
+      return 'fi fi-rs-pear'
+    end
+  end
+
 end
