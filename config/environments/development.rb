@@ -81,7 +81,7 @@ Rails.application.configure do
   # config.generators.apply_rubocop_autocorrect_after_generate!
 
   # PWA
-  config.hosts.clear
+  # config.hosts.clear
 
   config.hosts << /.*\.ngrok\.io$/
   config.hosts << /.*\.ngrok-free\.app$/

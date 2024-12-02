@@ -1,30 +1,46 @@
 <div class="mobile-container d-flex flex-column align-items-center gap-20">
   <!-- TODO: Hotwire reload -->
-  <h1>Tâches du jour</h1>
-  <h5><%= @date %></h5>
-  <ul>
-  <% if @grouped_task.nil? %>
-    <p>NO TASKS</p>
-  <% else %>
-    <% @grouped_task.each do |key, value| %>
-    <li>
-      <%# affiche la key qui correspond au nom d'une culture %>
-      <%= key %>
-      <br>
-      <%# itère sur les taches associées à cette culture pour afficher leur nom %>
-      <ul><% value.each do |task| %>
-        <li>
-          <i class='<%= task.category_picto%>'></i>
-          <%= task.name %>
-          <%= link_to "Reporter", edit_task_path(task.id) %>
-          <%# TODO :  affichage conditionnel si done = false, sinon on voit pas le bouton %>
-          <%= link_to "Fait !", validate_task_path(task.id) , data: { turbo_method: :patch }%>
-          <%= link_to "Détails", description_task_path(task.id) %>
-        </li>
-        <% end %>
-      </ul>
-    </li>
+  <div>
+  <div class="date-task">
+    <h1>Tâches du <%= I18n.l(Time.now, format: "%d %B") %></h1>
+  </div>
+    <% if @grouped_task.nil? %>
+      <p>NO TASKS</p>
+    <% else %>
+      <% @grouped_task.each do |culture, tasks| %>
+        <div class="culture-card">
+          <% culture = Culture.find_by(name: culture) %>
+          <div class="row col-sm-6 card card-body card-title task-card">
+            <div class="culture-name">
+              <h2 class="montserrat"><%= culture.name.upcase %></h2>
+            </div>
+            <div class='d-flex w-100 gap-1 justify-content-between'>
+              <div class='d-flex gap-1'>
+                <% tasks.each do |task| %>
+                  <div class="picto-task">
+                    <i class='<%= task.category_picto%>'></i>
+                  </div>
+                <% end %>
+              </div>
+              <div class="picto-coche">
+                  <i class="fi fi-br-angle-down"></i>
+              </div>
+            </div>
+            <% tasks.each do |task| %>
+              <div class='task-details'>
+                <div class="task-description">
+                  <%= task.description.capitalize %>
+                </div>
+                <div class="d-flex w-100">
+                  <%= link_to "Fait !", validate_task_path(task), data:{turbo_method: :patch} %>
+                  <%= link_to "Report !", task_path(task), data:{turbo_method: :patch} %>
+                  <%= link_to "Description !", description_task_path(task) %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-  </ul>
+  </div>
 </div>
