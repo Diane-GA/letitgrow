@@ -13,15 +13,17 @@ class Task < ApplicationRecord
   def start_time
     date
   end
-  
+
   private
 
   # méthode qui attribue une date d'action en fonction du délai
   # propre à la tâche et de la plantation_date de la culture
   def set_date
-    puts "Mise à jour de la date"
-    start_date = self.culture.plantation_date
-    self.date = start_date + self.delay
+    unless self.date.present?
+      puts "Mise à jour de la date"
+      start_date = self.culture.plantation_date
+      self.date = start_date + self.delay
+    end
   end
 
   # méthode pour attribuer par défaut la valeur false à "done"

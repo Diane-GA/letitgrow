@@ -1,0 +1,13 @@
+<div class="padding-horizontal-15 d-flex flex-column">
+  <div class="progress-container d-flex justify-content-center align-items-center">
+    <div class="circle-container">
+      <% if @culture.photo.present?%>
+        <%= image_tag @culture.photo%>
+      <%end%>
+    </div>
+    <div class="svg-container">
+      <%= render "progress_svg"%>
+    </div>
+  </div>
+  <div class="task-icon position-<%= @progress_status%>"></div>
+</div>

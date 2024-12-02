@@ -2,6 +2,7 @@ require "date"
 require "open-uri"
 
 
+
 puts "========== 🪓 Suppression des Tasks 🪓 ============="
 
 Task.destroy_all
@@ -25,13 +26,13 @@ puts "========== 🪄 #{User.count} users crées ! 🪄 ==================="
 
 puts "========== 🔮 Créations des Cultures 🔮 ============"
 
-master_ciboulette = Culture.create!(name: "Ciboulette", plantation_date: "2024-11-28", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_ciboulette = Culture.create!(name: "Ciboulette", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_ciboulette.photo.attach(io: URI.open("https://images.unsplash.com/photo-1719722628937-4e83eade87f6?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "ciboulette.jpg", content_type: "image/jpeg")
 
-master_tomate = Culture.create!(name: "Tomate", plantation_date: "2024-11-28", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_tomate = Culture.create!(name: "Tomate", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_tomate.photo.attach(io: URI.open("https://images.unsplash.com/photo-1534940519139-f860fb3c6e38?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "tomate.jpg", content_type: "image/jpeg")
 
-master_butternut = Culture.create!(name: "Butternut", plantation_date: "2024-11-28", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_butternut = Culture.create!(name: "Butternut", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_butternut.photo.attach(io: URI.open("https://images.unsplash.com/photo-1575679472639-3f3fc9b86bf6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "butternut.jpg", content_type: "image/jpeg")
 
 puts "========== 🔮 #{Culture.count} Cultures crée 🔮 ==================="
@@ -39,14 +40,14 @@ puts "====== 🪄 Créations des Tasks associé aux cultures 🪄 ============"
 puts "============= 🌿 Task pour Master Ciboulette 🌿 ============"
 
 Task.create!(name: "Semer", description: "Semer les graines en pleine terre en les espaçant de 20 cm et à 10 cm de profondeur ou dans un grand pot en terre cuite de 30cm de diamètre.", date: nil, done: false,  order: nil, category: "Planter / Semer", delay: 0, culture: master_ciboulette)
-Task.create!(name: "Arroser généreusement", description: "arroser généreusement pour que la terre permette l'enracinement", date: nil, done: false,  order: nil, category: "Arroser", delay: 0, culture: master_ciboulette)
+Task.create!(name: "Arroser ", description: "arroser généreusement pour que la terre permette l'enracinement", date: nil, done: false,  order: nil, category: "Arroser", delay: 0, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 3, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 6, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 9, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 12, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 14, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 20, culture: master_ciboulette)
-Task.create!(name: "Désherber", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 3, culture: master_ciboulette)
+Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour des tiges de ciboulette pour éviter la concurrence", date: nil, done: false,  order: nil, category: "Arroser", delay: 3, culture: master_ciboulette)
 Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour des tiges de ciboulette pour éviter la concurrence", date: nil, done: false,  order: nil, category: "Désherber", delay: 20, culture: master_ciboulette)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false,  order: nil, category: "Arroser", delay: 25, culture: master_ciboulette)
 Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour des tiges de ciboulette pour éviter la concurrence", date: nil, done: false,  order: nil, category: "Désherber", delay: 25, culture: master_ciboulette)
@@ -69,50 +70,50 @@ Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humi
 puts "============= 🌿 Task pour Master Ciboulette crées ! 🌿 ============"
 puts "============= 🍅 Task pour Master Tomate 🍅 ============"
 
-Task.create!(name: "Semer en intérieur", description: "semer au chaud et à la lumière dans des petits pots ou godets avec un engrais spécial semis", date: nil, done: false, order: nil, category: "Semer", delay: 0, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser généreusement pour que la terre et l'engrais permettent l'enracinement", date: nil, done: false, order: nil, category: "Arroser", delay: 0, culture: master_tomate)
+Task.create!(name: "Semer", description: "semer au chaud et à la lumière dans des petits pots ou godets avec un engrais spécial semis", date: nil, done: false, order: nil, category: "Semer", delay: 0, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser généreusement pour que la terre et l'engrais permettent l'enracinement", date: nil, done: false, order: nil, category: "Arroser", delay: 0, culture: master_tomate)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 3, culture: master_tomate)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 6, culture: master_tomate)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 9, culture: master_tomate)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 12, culture: master_tomate)
-Task.create!(name: "Repiquer les jeunes plants", description: "repiquer les plants dans des petits pots individuels quand les premières feuilles apparaissent", date: nil, done: false, order: nil, category: "Repiquer", delay: 14, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser généreusement pour que la terre et l'engrais permettent l'enracinement", date: nil, done: false, order: nil, category: "Arroser", delay: 14, culture: master_tomate)
+Task.create!(name: "Repiquer", description: "repiquer les plants dans des petits pots individuels quand les premières feuilles apparaissent", date: nil, done: false, order: nil, category: "Repiquer", delay: 14, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser généreusement pour que la terre et l'engrais permettent l'enracinement", date: nil, done: false, order: nil, category: "Arroser", delay: 14, culture: master_tomate)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 20, culture: master_tomate)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 24, culture: master_tomate)
-Task.create!(name: "Planter en terre", description: "planter les jeunes plants en pleine terre en les espaçant de 50 cm et à 10 cm de profondeur ou dans un grand pot en terre cuite de 30cm de diamètre", date: nil, done: false, order: nil, category: "Planter", delay: 25, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser généreusement pour que la terre et l'engrais permettent l'enracinement", date: nil, done: false, order: nil, category: "Arroser", delay: 25, culture: master_tomate)
-Task.create!(name: "Installer un tuteur", description: "planter profondément un bâton de 120 cm à 5 cm du pied de tomate et l'attacher de manière lâche à celui-ci pour le soutenir dans sa croissance", date: nil, done: false, order: nil, category: "Tuteur", delay: 25, culture: master_tomate)
+Task.create!(name: "Planter", description: "planter les jeunes plants en pleine terre en les espaçant de 50 cm et à 10 cm de profondeur ou dans un grand pot en terre cuite de 30cm de diamètre", date: nil, done: false, order: nil, category: "Planter", delay: 25, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser généreusement pour que la terre et l'engrais permettent l'enracinement", date: nil, done: false, order: nil, category: "Arroser", delay: 25, culture: master_tomate)
+Task.create!(name: "Installer", description: "planter profondément un bâton de 120 cm à 5 cm du pied de tomate et l'attacher de manière lâche à celui-ci pour le soutenir dans sa croissance", date: nil, done: false, order: nil, category: "Tuteur", delay: 25, culture: master_tomate)
 Task.create!(name: "Pailler", description: "recouvrir le pied de tomate de paille sur un diamètre de 20cm pour maintenir l'humidité du sol", date: nil, done: false, order: nil, category: "Pailler", delay: 25, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 28, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 28, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 28, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 31, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 31, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 35, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 35, culture: master_tomate)
-Task.create!(name: "Apporter de l'engrais", description: "mettre au pied de la plante de l'engrais liquide enrichi en phosphore pour encourager la fructification", date: nil, done: false, order: nil, category: "Engrais", delay: 40, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 35, culture: master_tomate)
+Task.create!(name: "Apporter", description: "mettre au pied de la plante de l'engrais liquide enrichi en phosphore pour encourager la fructification", date: nil, done: false, order: nil, category: "Engrais", delay: 40, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 40, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 40, culture: master_tomate)
-Task.create!(name: "Apporter de l'engrais", description: "mettre au pied de la plante de l'engrais liquide enrichi en phosphore pour encourager la fructification", date: nil, done: false, order: nil, category: "Engrais", delay: 40, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 40, culture: master_tomate)
+Task.create!(name: "Apporter", description: "mettre au pied de la plante de l'engrais liquide enrichi en phosphore pour encourager la fructification", date: nil, done: false, order: nil, category: "Engrais", delay: 40, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 45, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 45, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 45, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 50, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 50, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 50, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 55, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 55, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 55, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 60, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 60, culture: master_tomate)
+Task.create!(name: "Arroser ", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 60, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 65, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 65, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 65, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 70, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 70, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 70, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 75, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 75, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 75, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 80, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 80, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 80, culture: master_tomate)
 Task.create!(name: "Récolter", description: "récolter les tomates lorsqu'elles sont bien colorées et fermes au toucher", date: nil, done: false, order: nil, category: "Récolter", delay: 80, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser généreusement", date: nil, done: false, order: nil, category: "Arroser", delay: 90, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser généreusement", date: nil, done: false, order: nil, category: "Arroser", delay: 90, culture: master_tomate)
 Task.create!(name: "Récolter", description: "récolter les tomates lorsqu'elles sont bien colorées et fermes au toucher", date: nil, done: false, order: nil, category: "Récolter", delay: 90, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 100, culture: master_tomate)
-Task.create!(name: "Arroser généreusement", description: "arroser généreusement", date: nil, done: false, order: nil, category: "Arroser", delay: 100, culture: master_tomate)
+Task.create!(name: "Arroser", description: "arroser généreusement", date: nil, done: false, order: nil, category: "Arroser", delay: 100, culture: master_tomate)
 Task.create!(name: "Récolter", description: "récolter les tomates lorsqu'elles sont bien colorées et fermes au toucher", date: nil, done: false, order: nil, category: "Récolter", delay: 100, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 110, culture: master_tomate)
 Task.create!(name: "Récolter", description: "récolter les tomates lorsqu'elles sont bien colorées et fermes au toucher", date: nil, done: false, order: nil, category: "Récolter", delay: 110, culture: master_tomate)
@@ -121,8 +122,8 @@ Task.create!(name: "Arracher", description: "arracher le plant qui doit être de
 puts "============= 🍅 Task pour Master Tomate crées ! 🍅 ============"
 puts "============= 🍠 Task pour Master Butternut 🍠 ============"
 
-Task.create!(name: "Semer en intérieur", description: "semer au chaud et à l'ombre dans des petits pots ou godets avec un engrais spécial semis", date: nil, done: false, order: nil, category: "Semer", delay: 0, culture: master_butternut)
-Task.create!(name: "Arroser généreusement", description: "arroser généreusement pour que la terre permette la germination", date: nil, done: false, order: nil, category: "Arroser", delay: 0, culture: master_butternut)
+Task.create!(name: "Semer", description: "semer au chaud et à l'ombre dans des petits pots ou godets avec un engrais spécial semis", date: nil, done: false, order: nil, category: "Semer", delay: 0, culture: master_butternut)
+Task.create!(name: "Arroser", description: "arroser généreusement pour que la terre permette la germination", date: nil, done: false, order: nil, category: "Arroser", delay: 0, culture: master_butternut)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 3, culture: master_butternut)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 6, culture: master_butternut)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 9, culture: master_butternut)
@@ -130,7 +131,7 @@ Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humi
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 14, culture: master_butternut)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 20, culture: master_butternut)
 Task.create!(name: "Repiquer", description: "planter les jeunes plants en pleine terre en les espaçant de 1,5 à 2m ou dans un grand pot en terre cuite de 50cm de diamètre avec un treillage", date: nil, done: false, order: nil, category: "Repiquer", delay: 25, culture: master_butternut)
-Task.create!(name: "Arroser généreusement", description: "arroser généreusement pour que la terre permette le développement", date: nil, done: false, order: nil, category: "Arroser", delay: 25, culture: master_butternut)
+Task.create!(name: "Arroser", description: "arroser généreusement pour que la terre permette le développement", date: nil, done: false, order: nil, category: "Arroser", delay: 25, culture: master_butternut)
 Task.create!(name: "Pincer", description: "pincer les tiges au-dessus de la 3ème feuille pour favoriser la fructification", date: nil, done: false, order: nil, category: "Pincer", delay: 30, culture: master_butternut)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 30, culture: master_butternut)
 Task.create!(name: "Désherber", description: "arracher les mauvaises herbes autour du pied pour éviter la concurrence", date: nil, done: false, order: nil, category: "Désherber", delay: 30, culture: master_butternut)

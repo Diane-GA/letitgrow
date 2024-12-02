@@ -4,14 +4,20 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
 
   static values = {
-    tasks: Array
+    tasks: Array,
+    month: String,
+    year: String
   }
 
   connect() {
+    // this.tasksValue.forEach(element => {
+    //   const id = element.id
+    // });
 
-    console.log(this.tasksValue);
+    // const data_date = this.tasksValue[id].date
 
-
+    // this.element.addEventListener()
+    // console.log(this.tasksValue)
 
     !function() {
 
@@ -29,7 +35,7 @@ export default class extends Controller {
         if(current) {
           var self = this;
           window.setTimeout(function() {
-            self.openDay(current);
+            // self.openDay(current);
           }, 500);
         }
 
@@ -42,7 +48,7 @@ export default class extends Controller {
         //Draw Month
         this.drawMonth();
 
-        this.drawLegend();
+        // this.drawLegend();
       }
 
       Calendar.prototype.drawHeader = function() {
@@ -143,11 +149,26 @@ export default class extends Controller {
         this.getWeek(day);
 
         //Outer Day
-        var outer = createElement('div', this.getDayClass(day));
-        outer.addEventListener('click', function() {
-          self.openDay(this);
-        });
+        function formatDate(date = new Date()) {
+          const jour = String(date.getDate()).padStart(2, '0');
+          const mois = String(date.getMonth() + 1).padStart(2, '0');
+          const annee = date.getFullYear();
 
+          return `${annee}-${mois}`;
+        }
+
+        var outer = createElement('div', this.getDayClass(day));
+        outer.addEventListener('click', (event) => {
+          const days = event.target.innerText
+          const yearMonth = formatDate(this.current._d)
+          const fullDate = `${yearMonth}-${days}`
+          const url = `${window.location.href}/index_date?date=${fullDate}`
+          window.location = url
+
+          // self.openDay(this);
+        })
+
+        // https://www.let-it-grow.me
         //Day Name
         var name = createElement('div', 'day-name', day.format('ddd'));
 
@@ -191,122 +212,122 @@ export default class extends Controller {
         return classes.join(' ');
       }
 
-      Calendar.prototype.openDay = function(el) {
-        var details, arrow;
-        var dayNumber = +el.querySelectorAll('.day-number')[0].innerText || +el.querySelectorAll('.day-number')[0].textContent;
-        var day = this.current.clone().date(dayNumber);
+      // Calendar.prototype.openDay = function(el) {
+      //   var details, arrow;
+      //   var dayNumber = +el.querySelectorAll('.day-number')[0].innerText || +el.querySelectorAll('.day-number')[0].textContent;
+      //   var day = this.current.clone().date(dayNumber);
 
-        var currentOpened = document.querySelector('.details');
+      //   var currentOpened = document.querySelector('.details');
 
-        //Check to see if there is an open detais box on the current row
-        if(currentOpened && currentOpened.parentNode === el.parentNode) {
-          details = currentOpened;
-          arrow = document.querySelector('.arrow');
-        } else {
-          //Close the open events on differnt week row
-          //currentOpened && currentOpened.parentNode.removeChild(currentOpened);
-          if(currentOpened) {
-            currentOpened.addEventListener('webkitAnimationEnd', function() {
-              currentOpened.parentNode.removeChild(currentOpened);
-            });
-            currentOpened.addEventListener('oanimationend', function() {
-              currentOpened.parentNode.removeChild(currentOpened);
-            });
-            currentOpened.addEventListener('msAnimationEnd', function() {
-              currentOpened.parentNode.removeChild(currentOpened);
-            });
-            currentOpened.addEventListener('animationend', function() {
-              currentOpened.parentNode.removeChild(currentOpened);
-            });
-            currentOpened.className = 'details out';
-          }
+      //   //Check to see if there is an open detais box on the current row
+      //   if(currentOpened && currentOpened.parentNode === el.parentNode) {
+      //     details = currentOpened;
+      //     arrow = document.querySelector('.arrow');
+      //   } else {
+      //     //Close the open events on differnt week row
+      //     //currentOpened && currentOpened.parentNode.removeChild(currentOpened);
+      //     if(currentOpened) {
+      //       currentOpened.addEventListener('webkitAnimationEnd', function() {
+      //         currentOpened.parentNode.removeChild(currentOpened);
+      //       });
+      //       currentOpened.addEventListener('oanimationend', function() {
+      //         currentOpened.parentNode.removeChild(currentOpened);
+      //       });
+      //       currentOpened.addEventListener('msAnimationEnd', function() {
+      //         currentOpened.parentNode.removeChild(currentOpened);
+      //       });
+      //       currentOpened.addEventListener('animationend', function() {
+      //         currentOpened.parentNode.removeChild(currentOpened);
+      //       });
+      //       currentOpened.className = 'details out';
+      //     }
 
-          //Create the Details Container
-          details = createElement('div', 'details in');
+      //     //Create the Details Container
+      //     details = createElement('div', 'details in');
 
-          //Create the arrow
-          var arrow = createElement('div', 'arrow');
+      //     //Create the arrow
+      //     var arrow = createElement('div', 'arrow');
 
-          //Create the event wrapper
+      //     //Create the event wrapper
 
-          details.appendChild(arrow);
-          el.parentNode.appendChild(details);
-        }
+      //     details.appendChild(arrow);
+      //     el.parentNode.appendChild(details);
+      //   }
 
-        var todaysEvents = this.events.reduce(function(memo, ev) {
-          if(ev.date.isSame(day, 'day')) {
-            memo.push(ev);
-          }
-          return memo;
-        }, []);
+      //   var todaysEvents = this.events.reduce(function(memo, ev) {
+      //     if(ev.date.isSame(day, 'day')) {
+      //       memo.push(ev);
+      //     }
+      //     return memo;
+      //   }, []);
 
-        this.renderEvents(todaysEvents, details);
+      //   this.renderEvents(todaysEvents, details);
 
-        arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + 'px';
-      }
+      //   arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + 'px';
+      // }
 
-      Calendar.prototype.renderEvents = function(events, ele) {
-        //Remove any events in the current details element
-        var currentWrapper = ele.querySelector('.events');
-        var wrapper = createElement('div', 'events in' + (currentWrapper ? ' new' : ''));
+      // Calendar.prototype.renderEvents = function(events, ele) {
+      //   //Remove any events in the current details element
+      //   var currentWrapper = ele.querySelector('.events');
+      //   var wrapper = createElement('div', 'events in' + (currentWrapper ? ' new' : ''))
 
-        events.forEach(function(ev) {
-          var div = createElement('div', 'event');
-          var square = createElement('div', 'event-category ' + ev.color);
-          var span = createElement('span', '', ev.eventName);
+      //   events.forEach(function(ev) {
+      //     var div = createElement('div', 'event');
+      //     var square = createElement('div', 'event-category ' + ev.color);
+      //     var span = createElement('span', '', ev.eventName);
 
-          div.appendChild(square);
-          div.appendChild(span);
-          wrapper.appendChild(div);
-        });
+      //     div.appendChild(square);
+      //     div.appendChild(span);
+      //     wrapper.appendChild(div);
+      //   });
 
-        if(!events.length) {
-          var div = createElement('div', 'event empty');
-          var span = createElement('span', '', 'No Events');
+      //   if(!events.length) {event
+      //     var div = createElement('div', 'empty');
+      //     var span = createElement('span', '', 'No Events');
 
-          div.appendChild(span);
-          wrapper.appendChild(div);
-        }
+      //     div.appendChild(span);
+      //     wrapper.appendChild(div);
+      //   }
 
-        if(currentWrapper) {
-          currentWrapper.className = 'events out';
-          currentWrapper.addEventListener('webkitAnimationEnd', function() {
-            currentWrapper.parentNode.removeChild(currentWrapper);
-            ele.appendChild(wrapper);
-          });
-          currentWrapper.addEventListener('oanimationend', function() {
-            currentWrapper.parentNode.removeChild(currentWrapper);
-            ele.appendChild(wrapper);
-          });
-          currentWrapper.addEventListener('msAnimationEnd', function() {
-            currentWrapper.parentNode.removeChild(currentWrapper);
-            ele.appendChild(wrapper);
-          });
-          currentWrapper.addEventListener('animationend', function() {
-            currentWrapper.parentNode.removeChild(currentWrapper);
-            ele.appendChild(wrapper);
-          });
-        } else {
-          ele.appendChild(wrapper);
-        }
-      }
+      //   if(currentWrapper) {
+      //     currentWrapper.className = 'events out';
+      //     currentWrapper.addEventListener('webkitAnimationEnd', function() {
+      //       currentWrapper.parentNode.removeChild(currentWrapper);
+      //       ele.appendChild(wrapper);
+      //     });
+      //     currentWrapper.addEventListener('oanimationend', function() {
+      //       currentWrapper.parentNode.removeChild(currentWrapper);
+      //       ele.appendChild(wrapper);
+      //     });
+      //     currentWrapper.addEventListener('msAnimationEnd', function() {
+      //       currentWrapper.parentNode.removeChild(currentWrapper);
+      //       ele.appendChild(wrapper);
+      //     });
+      //     currentWrapper.addEventListener('animationend', function() {
+      //       currentWrapper.parentNode.removeChild(currentWrapper);
+      //       ele.appendChild(wrapper);
+      //     });
+      //   } else {
+      //     ele.appendChild(wrapper);
+      //   }
+      // }
 
-      Calendar.prototype.drawLegend = function() {
-        var legend = createElement('div', 'legend');
-        var calendars = this.events.map(function(e) {
-          return e.calendar + '|' + e.color;
-        }).reduce(function(memo, e) {
-          if(memo.indexOf(e) === -1) {
-            memo.push(e);
-          }
-          return memo;
-        }, []).forEach(function(e) {
-          var parts = e.split('|');
-          var entry = createElement('span', 'entry ' +  parts[1], parts[0]);
-          legend.appendChild(entry);
-        });
-        this.el.appendChild(legend);
-      }
+      // Calendar.prototype.drawLegend = function() {
+      //   var legend = createElement('div', 'legend');
+      //   var calendars = this.events.map(function(e) {
+      //     return e.calendar + '|' + e.color;
+      //   }).reduce(function(memo, e) {
+      //     if(memo.indexOf(e) === -1) {
+      //       memo.push(e);
+      //     }
+      //     return memo;
+      //   }, []).forEach(function(e) {
+      //     var parts = e.split('|');
+      //     var entry = createElement('span', 'entry ' +  parts[1], parts[0]);
+      //     legend.appendChild(entry);
+      //   });
+      //   this.el.appendChild(legend);
+      // }
 
       Calendar.prototype.nextMonth = function() {
         this.current.add('months', 1);
@@ -339,7 +360,7 @@ export default class extends Controller {
     // let description = this.tasksValue[0].description;
     let data = [];
     this.tasksValue.forEach(element => {
-      let data_date = { eventName: element.description, calendar: element.name, color: 'orange', date: element.date };
+      let data_date = { eventName: element.description, calendar: element.name, color: 'orange', date: element.date, id: element.id };
       data.push(data_date)
     });
 

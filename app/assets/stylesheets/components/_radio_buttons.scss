@@ -1,0 +1,17 @@
+.radio-container {
+  display: flex;
+  // align-items: left;
+  width: 100%;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 49%;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+.radio-option {
+margin-bottom: 20px;
+}

@@ -1,0 +1,28 @@
+<div class="mobile-container d-flex flex-column align-items-center gap-20">
+  <!-- TODO: Hotwire reload -->
+  <h1>Tâches du jour</h1>
+  <h5><%= @date %></h5>
+  <ul>
+  <% if @grouped_task.nil? %>
+    <p>NO TASKS</p>
+  <% else %>
+    <% @grouped_task.each do |key, value| %>
+    <li>
+      <%# affiche la key qui correspond au nom d'une culture %>
+      <%= key %>
+      <br>
+      <%# itère sur les taches associées à cette culture pour afficher leur nom %>
+      <ul><% value.each do |task| %>
+        <li><%= task.name %>
+          <%= link_to "Reporter", edit_task_path(task.id) %>
+          <%# TODO :  affichage conditionnel si done = false, sinon on voit pas le bouton %>
+          <%= link_to "Fait !", validate_task_path(task.id) , data: { turbo_method: :patch }%>
+          <%= link_to "Détails", description_task_path(task.id) %>
+        </li>
+        <% end %>
+      </ul>
+    </li>
+    <% end %>
+  <% end %>
+  </ul>
+</div>
