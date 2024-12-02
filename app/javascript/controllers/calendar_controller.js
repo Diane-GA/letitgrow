@@ -4,9 +4,7 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
 
   static values = {
-    tasks: Array,
-    month: String,
-    year: String
+    tasks: Array
   }
 
   connect() {
