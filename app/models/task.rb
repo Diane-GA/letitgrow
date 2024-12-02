@@ -26,7 +26,7 @@ class Task < ApplicationRecord
     elsif self.category == "Protéger"
       return 'fi fi-bs-shield'
     elsif self.category == "Récolter"
-      return 'fi fi-rr-hand-paper'
+      return 'fi fi-rs-hand-paper'
     elsif self.category == "Arracher"
       return 'fi fi-rr-hourglass-end'
     elsif self.category == "Custom"
