@@ -67,11 +67,11 @@ class Culture < ApplicationRecord
   # methode pour associer le picto correspondant à la culture
   def culture_picto
     if self.name == "Tomate"
-      return 'fa-regular fa-tomato'
+      return 'fi fi-rr-tomato'
     elsif self.name == "Ciboulette"
-      return 'fa-regular fa-chopsticks'
+      return 'fi fi-rr-grass'
     elsif self.name == "Butternut"
-      return 'fa-regular fa-pear'
+      return 'fi fi-rs-pear'
     end
   end
 

@@ -16,32 +16,30 @@ class Task < ApplicationRecord
 
   def category_picto()
     if self.category == "Planter"
-      return 'fa-regular fa-shovel'
+      return 'fi fi-rr-shovel'
     elsif self.category == "Arroser"
-      return 'fa-regular fa-droplet'
+      return 'fi fi-rs-raindrops'
     elsif self.category == "Tailler"
-      return 'fa-regular fa-scissors'
+      return 'fi fi-rs-scissors'
     elsif self.category == "Encourager"
-      return 'fa-regular fa-life-ring'
+      return 'fi fi-tr-hand-holding-seeding'
     elsif self.category == "Protéger"
-      return 'fa-regular fa-shield-check'
+      return 'fi fi-bs-shield'
     elsif self.category == "Récolter"
-      return 'fa-regular fa-hand-spock'
+      return 'fi fi-rr-hand-paper'
     elsif self.category == "Arracher"
-      return 'fa-regular fa-hourglass-end'
+      return 'fi fi-rr-hourglass-end'
+    elsif self.category == "Custom"
+      return 'fi fi-rc-settings'
     end
   end
-
-  private
 
   # méthode qui attribue une date d'action en fonction du délai
   # propre à la tâche et de la plantation_date de la culture
   def set_date
-    unless self.date.present?
       puts "Mise à jour de la date"
       start_date = self.culture.plantation_date
-      self.date = start_date + self.delay
-    end
+      self.date = start_date + self.delay unless category == "Custom"
   end
 
   # méthode pour attribuer par défaut la valeur false à "done"
