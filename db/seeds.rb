@@ -17,7 +17,7 @@ User.destroy_all
 
 puts "========== 🪄 Créations des Users 🪄 ==============="
 user = User.create!(email: "master@gmail.com", password: "123456", username: "Master", address: "Toronto")
-User.create!(email: "diane@gmail.com", password: "123456", username: "Diane", address: "11 rue mauvoisin, 44000, Nantes")
+User.create!(email: "diane@gmail.com", password: "123456", username: "Marguerite", address: "11 rue mauvoisin, 44000, Nantes")
 User.create!(email: "vivien@gmail.com", password: "123456", username: "Vivien", address: "8 place crousillat, 13300, Salon-de-Provence")
 User.create!(email: "clement@gmail.com", password: "123456", username: "Clement", address: "34 rue du bel-air, 74000, Annecy")
 User.create!(email: "anne-sophie@gmail.com", password: "123456", username: "Anne-sophie", address: "Japon, 〒533-0031 Osaka, Higashiyodogawa Ward, Nishiawaji, 5 Chome−15−10 1F")
@@ -82,7 +82,7 @@ Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humi
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide", date: nil, done: false, order: nil, category: "Arroser", delay: 24, culture: master_tomate)
 Task.create!(name: "Planter", description: "planter les jeunes plants en pleine terre en les espaçant de 50 cm et à 10 cm de profondeur ou dans un grand pot en terre cuite de 30cm de diamètre", date: nil, done: false, order: nil, category: "Planter", delay: 25, culture: master_tomate)
 Task.create!(name: "Arroser", description: "arroser généreusement pour que la terre et l'engrais permettent l'enracinement", date: nil, done: false, order: nil, category: "Arroser", delay: 25, culture: master_tomate)
-Task.create!(name: "Installer un tuteur", description: "planter profondément un bâton de 120 cm à 5 cm du pied de tomate et l'attacher de manière lâche à celui-ci pour le soutenir dans sa croissance", date: nil, done: false, order: nil, category: "Encourager", delay: 25, culture: master_tomate)
+Task.create!(name: "Tuteriser", description: "planter profondément un bâton de 120 cm à 5 cm du pied de tomate et l'attacher de manière lâche à celui-ci pour le soutenir dans sa croissance", date: nil, done: false, order: nil, category: "Encourager", delay: 25, culture: master_tomate)
 Task.create!(name: "Pailler", description: "recouvrir le pied de tomate de paille sur un diamètre de 20cm pour maintenir l'humidité du sol", date: nil, done: false, order: nil, category: "Protéger", delay: 25, culture: master_tomate)
 Task.create!(name: "Arroser", description: "arroser pour maintenir la terre humide sans mouiller les feuilles", date: nil, done: false, order: nil, category: "Arroser", delay: 28, culture: master_tomate)
 Task.create!(name: "Tailler", description: "enlever les petites feuilles à l'aisselle des tiges pour permettre la croissance de la tige principale", date: nil, done: false, order: nil, category: "Tailler", delay: 28, culture: master_tomate)
