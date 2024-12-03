@@ -1,5 +1,5 @@
 <div class="mobile-container d-flex flex-column align-items-center gap-20 padding-horizontal-15">
-  <%= render "shared/side_panel_header", title: "Tu plantes quoi ?", delete_button: false %>
+  <%= render "shared/side_panel_header", title: "Tu plantes quoi ?",back_button: true, delete_button: false %>
   <div class="form-container w-100 d-flex flex-column">
     <!-- choix de la culture -->
     <%= form_with(model: Culture.new, local: true, class:"w-100") do |f| %>
