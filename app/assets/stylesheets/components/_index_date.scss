@@ -3,9 +3,9 @@
   --bs-card-border-color: none;
 }
 
-.card-body {
-  padding: 15px;
-}
+// .card-body {
+//   // padding: 0px;
+// }
 
 .tourne {
   transform: rotate(180deg); /* Équivalent à rotateZ(45deg) */
@@ -18,7 +18,7 @@
 
 .culture-card {
   width: calc(100vw - 2rem);
-  padding: 0 2rem;
+
   border-radius: 20px;
   background-color: #749583;
 }
@@ -75,4 +75,12 @@
 
 .task-details {
   color: white;
+}
+
+
+.icons_tasks {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.25rem;
 }

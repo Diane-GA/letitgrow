@@ -47,6 +47,15 @@ class TasksController < ApplicationController
     @task.update(done: true)
   end
 
+  def valid_task
+    @task = Task.find(params[:id])
+    if @task.toggle!(:done)
+      render :index, locals: { task: @task }, partial: "tasks/validate_task"
+    else
+      redirect_to tasks_path
+    end
+  end
+
   def index_date
     # on récupère les tasks en filtrant avec la date : where(date: xxxx)
     @tasks = Task.includes(:culture).where(date: params[:date])

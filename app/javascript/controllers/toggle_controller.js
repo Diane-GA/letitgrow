@@ -13,4 +13,8 @@ export default class extends Controller {
     this.togglableElementTarget.classList.toggle("d-none");
     this.tourneTarget.classList.toggle("tourne");
   }
+
+  refresh() {
+    location.reload();
+  }
 }
