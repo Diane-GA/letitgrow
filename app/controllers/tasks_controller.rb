@@ -57,6 +57,7 @@ class TasksController < ApplicationController
     # qui sont associées à la culture (key:) et à la date filtrée
     @grouped_task = @tasks.group_by { |task| task.culture.name }
     @date = params[:date]
+    @en_date = Date.new(@date.split("-")[0].to_i, @date.split("-")[1].to_i, @date.split("-")[2].to_i)
   end
 
   private
