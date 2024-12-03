@@ -47,6 +47,15 @@ class TasksController < ApplicationController
     @task.update(done: true)
   end
 
+  def valid_task
+    @task = Task.find(params[:id])
+    if @task.toggle!(:done)
+      render :index, locals: { task: @task }, partial: "tasks/validate_task"
+    else
+      redirect_to tasks_path
+    end
+  end
+
   def index_date
     # on récupère les tasks en filtrant avec la date : where(date: xxxx)
     @tasks = Task.includes(:culture).where(date: params[:date])
@@ -57,6 +66,7 @@ class TasksController < ApplicationController
     # qui sont associées à la culture (key:) et à la date filtrée
     @grouped_task = @tasks.group_by { |task| task.culture.name }
     @date = params[:date]
+    @en_date = Date.new(@date.split("-")[0].to_i, @date.split("-")[1].to_i, @date.split("-")[2].to_i)
   end
 
   private
