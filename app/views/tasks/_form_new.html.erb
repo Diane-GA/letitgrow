@@ -1,9 +1,32 @@
-<%= form_with model: [culture, task] do |f| %>
-  <%= f.label :name, "Intitulé" %>
-  <%= f.text_field :name %>
-  <%= f.label :description, "Description" %>
-  <%= f.text_field :description %>
-  <%= f.label :date, "Date" %>
-  <%= f.date_field :date %>
-  <%= f.submit %>
-<% end %>
+<div class="mobile-container d-flex flex-column align-items-center gap-20 padding-horizontal-15">
+<h1 class="fs-1" style="color: #051303; fw-bold">Tu veux faire quoi ?</h1>
+
+<div class="form-container">
+<%# choix de la culture %>
+  <%= form_with model: [culture, task], local: true, class:"w-100" do |f| %>
+    <div class="form_new_select">
+      <i class="fa-solid fa-chevron-down fa-2xl" style="color: #051303; position: absolute;right: 40px;top: 30px;font-size:1rem"></i>
+    <%= f.select :name, Culture::CULTURE_NAME,
+                   { prompt: "Choisissez une culture", selected: Culture::CULTURE_STATUS.first },
+                   { class: "form-label custom-input back-gray-input select_culture" } %>
+    </div>
+
+<%# choix de la date %>
+    <div class="">
+    <i class="fa-solid fa-pen" style="color: #051303; position: absolute;right: 53px;top: 560px;font-size:1rem"></i>
+      <%= f.date_field :date, class: "custom-input back-gray-input", value: Date.today%>
+    </div>
+
+<%# renseignement du nom de tâche %>
+    <div class="">
+      <%= f.text_field :description, class: "custom-input back-gray-input"%>
+    </div>
+
+<%# validation %>
+    <div class="btn-submit">
+      <%= f.submit "C'est calé !", class: "h-64 btn btn-warning w-100 rounded-50 p-3 fs-5" %>
+    </div>
+  <% end %>
+
+  </div>
+</div> %>
