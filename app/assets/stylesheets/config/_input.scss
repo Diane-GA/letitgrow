@@ -3,6 +3,7 @@
   height: 64px;
   margin-bottom: 20px;
   font-size: 16px;
+  font-weight: 500;
   padding-inline: 30px;
   background-color: transparent;
   border-radius: 50px;
@@ -65,6 +66,5 @@
 input[type="date"]::-webkit-calendar-picker-indicator {
   width: 25px;
   height: 25px;
-  filter: invert(1);
   right: 2px;
 }

@@ -43,8 +43,11 @@ class CulturesController < ApplicationController
       new_task.save
     end
     # on save la culture + redirection show
-    @new_culture.save
+    if @new_culture.save
     redirect_to culture_path(@new_culture)
+    else
+    render :new, status: :unprocessable_entity, notice: "Il manque une info !"
+    end
   end
 
   def destroy
