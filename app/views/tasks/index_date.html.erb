@@ -1,37 +1,39 @@
 <div class="mobile-container d-flex flex-column align-items-center gap-20">
   <!-- TODO: Hotwire reload -->
   <div>
-    <h1>Tâches du jour</h1>
-    <h2><%= @date %></h2>
-  </div>
-  <% if @grouped_task.nil? %>
-    <p>NO TASKS</p>
-  <% else %>
-    <% @grouped_task.each do |key, value| %>
-      <%# affiche la key qui correspond au nom d'une culture %>
-      <% key %>+
-      <br>
-      <%# itère sur les taches associées à cette culture pour afficher leur nom %>
-      <% value.each do |task| %>
-        <% if task.culture.name.include?("Tomate") %>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="card">
-                <div class="card-body">
-                  <h4><%= task.culture.name %></h4>
-                  <h5 class="card-title"><%= task.name %></h5>
-                  <p class="card-text" class='<%= task.category_picto%>'><%= task.description %>
-                    <br>
-                    <%= link_to "Reporter", edit_task_path(task.id) %>
-                    <%# TODO :  affichage conditionnel si done = false, sinon on voit pas le bouton %>
-                    <%= link_to "Fait !", validate_task_path(task.id) , data: { turbo_method: :patch }%>
-                    <%= link_to "Détails", description_task_path(task.id) %>
-                  </p>
-                </div>
+    <div class="date-task">
+      <h1>Tâches du <%= I18n.l(@en_date, format: "%d %B") %></h1>
+    </div>
+    <% if @grouped_task == {} %>
+      <h2>Pas de tache aujourd'hui.</h2>
+    <% else %>
+      <% @grouped_task.each do |culture, tasks| %>
+        <div class="culture-card row col-sm-6 card row col-sm-6 card card-body card-title task-card">
+          <% culture = Culture.find_by(name: culture) %>
+          <div class="col-sm-6 card card-body card-title task-card w-100 ps-2 p-0" data-controller="toggle">
+            <div class="culture-name">
+              <h2 class="montserrat"><%= culture.name.upcase %></h2>
+            </div>
+            <div class='icons_tasks'>
+              <div class='d-flex gap-1 max-w'>
+                <% tasks.each do |task| %>
+                  <div class="picto-task">
+                    <i class='<%= task.category_picto%>'></i>
+                  </div>
+                <% end %>
+              </div>
+              <div class="picto-coche" data-toggle-target="tourne">
+                <i class="fa-solid fa-circle-chevron-down fa-2xl" style="color: #FFFFFF;" data-action="click->toggle#fire"></i>
               </div>
             </div>
-          <% end %>
-        <% end %>
+            <div class="d-none w-100 mt-3" data-toggle-target="togglableElement">
+              <% tasks.each do |task| %>
+                <%= render "validate_task", task: task %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
     <% end %>
   </div>
+</div>

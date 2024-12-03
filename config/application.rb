@@ -34,7 +34,7 @@ module Letitgrow
 
     def set_time_zone
       Time.zone = current_user.time_zone
-      config.time_zone = 'Central Time (US & Canada)'
+      config.i18n.default_locale = :fr
     end
   end
 end

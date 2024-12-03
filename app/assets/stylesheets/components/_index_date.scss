@@ -1,0 +1,86 @@
+.task-card {
+  background-color: $sage;
+  --bs-card-border-color: none;
+}
+
+// .card-body {
+//   // padding: 0px;
+// }
+
+.tourne {
+  transform: rotate(180deg); /* Équivalent à rotateZ(45deg) */
+}
+
+.max-w {
+  max-width: 170px;
+  flex-wrap: wrap;
+}
+
+.culture-card {
+  width: calc(100vw - 2rem);
+
+  border-radius: 20px;
+  background-color: #749583;
+}
+
+.date-task {
+  color: black;
+  font-size: 36px;
+}
+
+.culture-name {
+  color: $green-forest;
+  font-size: 23px;
+  margin-bottom: 10px;
+
+}
+
+.picto-coche{
+  display: flex;
+  align-items: center;
+}
+
+.picto-task {
+  border-radius: 100%;
+  height: 54px;
+  width: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $green-forest;
+  color: white;
+}
+
+.picto-task i {
+  font-size: 25px;
+  max-height: 30px;
+}
+
+.picto-bas {
+  border-radius: 100%;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $green-forest;
+  color: white;
+}
+
+.picto-bas i {
+  font-size: 19.5px;
+  max-height: 22px;
+}
+
+
+.task-details {
+  color: white;
+}
+
+
+.icons_tasks {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.25rem;
+}

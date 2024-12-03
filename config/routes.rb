@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     # routes validates et description dépendent d'une task
     member do
       patch :validate
+      patch :valid_task
       get :description
     end
     collection do
