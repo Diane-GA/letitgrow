@@ -1,11 +1,10 @@
 <!-- TODO: Hotwire reload -->
 <%= turbo_frame_tag task do%>
   <%= link_to validate_task_path(task.id), data: { turbo_method: :patch } do%>
-    <li class="task-list d-flex justify-content-between align-items-center text-white p-1 <%= task.done ? 'opacity-50' : ''%>">
+    <li class="btn btn-primary task-list d-flex justify-content-between align-items-center text-white px-2 m-1 <%= task.done ? 'opacity-50' : ''%>">
       <p class="m-0"><%= task.name%></p>
-      <!-- TODO: Utiliser Intl.DateTimeFormat en JS pour les -->
       <p class="m-0"><%= task.date.to_formatted_s(:short) %></p>
-      <i class="<%= task.done ? "fa-solid fa-square-check" : "fa-regular fa-square"%>"></i>
+      <i class="<%= task.done ?  "fi fi-ss-check-circle" : "fi fi-rs-check-circle"%>"></i>
     </li>
   <%end%>
 <%end%>

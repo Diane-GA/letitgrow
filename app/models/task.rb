@@ -14,36 +14,41 @@ class Task < ApplicationRecord
     date
   end
 
-  def category_picto()
-    if self.category == "Planter"
-      return "fi fi-rr-shovel"
-    elsif self.category == "Arroser"
-      return "fi fi-rs-raindrops"
-    elsif self.category == "Tailler"
-      return "fi fi-rs-scissors"
-    elsif self.category == "Encourager"
-      return "fi fi-tr-hand-holding-seeding"
-    elsif self.category == "Protéger"
-      return "fi fi-bs-shield"
-    elsif self.category == "Récolter"
-      return "fi fi-rs-hand-paper"
-    elsif self.category == "Arracher"
-      return "fi fi-rr-hourglass-end"
-    elsif self.category == "Custom"
-      return "fi fi-rc-settings"
-    end
+  def category_picto
+    {
+      "Planter" => "fi fi-rr-shovel",
+      "Arroser" => "fi fi-rs-raindrops",
+      "Tailler" => "fi fi-rs-scissors",
+      "Encourager" => "fi fi-tr-hand-holding-seeding",
+      "Protéger" => "fi fi-bs-shield",
+      "Récolter" => "fi fi-rs-hand-paper",
+      "Arracher" => "fi fi-rr-hourglass-end",
+      "Custom" => "fi fi-rc-settings"
+    }[category]
   end
 
   # méthode qui attribue une date d'action en fonction du délai
   # propre à la tâche et de la plantation_date de la culture
   def set_date
     puts "Mise à jour de la date"
-    start_date = self.culture.plantation_date
-    self.date = start_date + self.delay unless category == "Custom"
+    start_date = culture.plantation_date
+    self.date = start_date + delay unless category == "Custom"
   end
 
   # méthode pour attribuer par défaut la valeur false à "done"
   def set_default_done
-    self.update(done: false)
+    if culture.plantation_date < Date.today && date < Date.today
+      update(done: true)
+    else
+      update(done: false)
+    end
+  end
+
+  def update_statut
+    if (name == "Semer") && (culture.plantation_date <= Date.today)
+      update(done: true)
+      update(date: culture.plantation_date)
+    end
+    update(date: Date.today + 1) if done == false && date < Date.today
   end
 end

@@ -43,7 +43,7 @@ class TasksController < ApplicationController
 
   def validate
     @task = Task.find(params[:id])
-    if @task.update(done: true)
+    if @task.toggle!(:done)
       render "cultures/show", locals: { task: @task }, partial: "cultures/tasks_list"
     else
       redirect_to culture_path(@task.culture)
