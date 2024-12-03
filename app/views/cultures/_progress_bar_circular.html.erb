@@ -1,9 +1,13 @@
 <div class="padding-horizontal-15 d-flex flex-column">
   <div class="progress-container d-flex justify-content-center align-items-center">
     <div class="circle-container">
-      <% if @culture.photo.present?%>
-        <%= image_tag @culture.photo%>
-      <%end%>
+      <% if @culture.name == "Tomate" %>
+        <%= cl_image_tag(@master_tomate.photo.key, crop: :fill) %>
+      <% elsif @culture.name == "Ciboulette" %>
+        <%= cl_image_tag(@master_ciboulette.photo.key, crop: :fill) %>
+      <% elsif @culture.name == "Butternut" %>
+        <%= cl_image_tag(@master_butternut.photo.key, crop: :fill) %>
+      <% end %>
     </div>
     <div class="svg-container">
       <%= render "progress_svg"%>

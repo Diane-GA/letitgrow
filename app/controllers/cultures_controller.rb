@@ -5,6 +5,9 @@ class CulturesController < ApplicationController
   end
 
   def show
+    @master_tomate = Culture.find_by(name: "Tomate", master: true)
+    @master_ciboulette = Culture.find_by(name: "Ciboulette", master: true)
+    @master_butternut = Culture.find_by(name: "Butternut", master: true)
     @culture = Culture.find(params[:id])
     @tasks_reversed = @culture.tasks.reverse
     if @culture.status == "Graine"
