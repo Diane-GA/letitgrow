@@ -1,90 +1,81 @@
-
 .form_new_select {
   position: relative;
 }
 
-.custom-input {
-  font-weight: 500px;
-  color: #051303;
-}
-
 .btn-warning {
   box-shadow: 3px 3px 3px rgba(45, 45, 45, 0.5);
-  font-weight: 500px;
-  color: 051303
 }
 
 .form-container {
-  box-sizing: border-box; // Inclut le padding dans la largeur totale
-  margin: 0px;
-  justify-self: between;
 
-.flight-types {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin: 0px;
-
-  .radio-group {
-    width: 100%;
+  .flight-types {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-  }
-
-  .single-button {
-    display: inline-flex;
     width: 100%;
-    justify-content: center;
-    border: 2px solid $sage;;
-    border-radius: 30px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    font-weight: 500;
-    color: #051303;
-  }
-  .radio-option {
-    // position: relative;
-    // flex: 1;
-    width: 50%;
     margin: 0px;
-    input[type="radio"] {
-      display: none;
-      margin: 0px;
+
+    .radio-group {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    label {
-      display: block;
-      padding: 20px 20px;
-      background-color: #EDF0EF;
-      color: 051303;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
-      height: 100%;
+    .single-button {
+      display: inline-flex;
+      width: 100%;
+      justify-content: center;
+      border: 2px solid $sage;
+      ;
+      border-radius: 30px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      font-weight: 500;
+      color: $black;
+    }
+
+    .radio-option {
+      width: 50%;
       margin: 0px;
 
-      &:hover {
-        background-color: #ded8b2;
-        color: #EDF0EF;
+      input[type="radio"] {
+        display: none;
         margin: 0px;
       }
-    }
 
-    input[type="radio"]:checked + label {
-      background-color: #ded8b2;
-      color: #0D4232;
-      margin: 0px;
-    }
+      label {
+        display: block;
+        padding: 20px 20px;
+        background-color: $gray-mouse;
+        color: $black;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        height: 100%;
+        margin: 0px;
 
-    &:first-child label {
-      border-right: 1px solid #0D4232;
-      margin: 0px;
-    }
-    input[type="select"] {
-      margin: 0px
+        &:hover {
+          background-color: $dutch-white;
+          color: $gray-mouse;
+          margin: 0px;
+        }
+      }
+
+      input[type="radio"]:checked+label {
+        background-color: $dutch-white;
+        color: $green-forest;
+        margin: 0px;
+      }
+
+      &:first-child label {
+        border-right: 1px solid $green-forest;
+        margin: 0px;
+      }
+
+      input[type="select"] {
+        margin: 0px
+      }
     }
   }
-}
 }

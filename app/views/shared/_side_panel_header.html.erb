@@ -5,9 +5,11 @@
   <h1 class="fw-bold fs-1 m-0">
     <%= title %>
   </h1>
-  <%= link_to culture_path(@culture),
+  <% if delete_button%>
+    <%= link_to culture_path(@culture),
                 data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"},
                 class:"rounded-button position-right bg-danger" do %>
-    <i class="fa-solid fa-trash"></i>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
   <% end %>
 </div>
