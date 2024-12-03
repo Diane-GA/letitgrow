@@ -1,5 +1,5 @@
 <div class="mobile-container d-flex flex-column align-items-center gap-20 padding-horizontal-15">
-<h1 class="fs-1" style="color: #051303; fw-bold">Tu veux faire quoi ?</h1>
+<%= render "shared/side_panel_header", title: "Tu veux faire quoi ?", back_button: true, delete_button: false %>
 
 <div class="form-container">
 <%# choix de la culture %>
@@ -13,7 +13,7 @@
 
 <%# choix de la date %>
     <div class="">
-    <i class="fa-solid fa-pen" style="color: #051303; position: absolute;right: 53px;top: 560px;font-size:1rem"></i>
+    <i class="fa-solid fa-pen" style="color: #051303; position: absolute;right: 53px;top: 50px;font-size:1rem"></i>
       <%= f.date_field :date, class: "custom-input back-gray-input", value: Date.today%>
     </div>
 
@@ -24,7 +24,7 @@
 
 <%# validation %>
     <div class="btn-submit">
-      <%= f.submit "C'est calé !", class: "h-64 btn btn-warning w-100 rounded-50 p-3 fs-5" %>
+      <%= f.submit "C'est calé !", class: "text-white h-64 btn btn-warning w-100 rounded-50 p-3 fs-5" %>
     </div>
   <% end %>
 
