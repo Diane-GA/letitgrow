@@ -1,39 +1,41 @@
-<div class="mobile-container d-flex flex-column align-items-center gap-20">
-  <!-- TODO: Hotwire reload -->
-  <div>
-    <div class="date-task">
-      <h1>Tâches du <%= I18n.l(@en_date, format: "%d %B") %></h1>
-    </div>
-    <% if @grouped_task == {} %>
-      <h2>Pas de tache aujourd'hui.</h2>
-    <% else %>
+<div class="mobile-container d-flex flex-column align-items-center gap-20 padding-horizontal-15">
+  <%= render "shared/side_panel_header", title: "Tâches du jour", back_button: false, delete_button: false, day_date: I18n.l(@en_date, format: "%d %b") %>
+  <% if @grouped_task.empty? %>
+    <h2>Pas de tache aujourd'hui.</h2>
+  <% else %>
+    <div class="d-flex flex-column align-items-center w-100 gap-30">
       <% @grouped_task.each do |culture, tasks| %>
-        <div class="culture-card row col-sm-6 card row col-sm-6 card card-body card-title task-card">
-          <% culture = Culture.find_by(name: culture) %>
-          <div class="col-sm-6 card card-body card-title task-card w-100 ps-2 p-0" data-controller="toggle">
-            <div class="culture-name">
-              <h2 class="montserrat"><%= culture.name.upcase %></h2>
-            </div>
-            <div class='icons_tasks'>
-              <div class='d-flex gap-1 max-w'>
-                <% tasks.each do |task| %>
-                  <div class="picto-task">
-                    <i class='<%= task.category_picto%>'></i>
-                  </div>
-                <% end %>
-              </div>
-              <div class="picto-coche" data-toggle-target="tourne">
-                <i class="fa-solid fa-circle-chevron-down fa-2xl" style="color: #FFFFFF;" data-action="click->toggle#fire"></i>
-              </div>
-            </div>
-            <div class="d-none w-100 mt-3" data-toggle-target="togglableElement">
+        <% culture = Culture.find_by(name: culture) %>
+        <!-- Card -->
+        <div class="w-100 rounded-20 bg-primary p-3" data-controller="toggle">
+          <div>
+            <h2 class="montserrat text-success fs-3 fw-semibold"><%= culture.name.upcase %></h2>
+          </div>
+          <div class="d-flex justify-content-between">
+
+            <div class="d-flex gap-1 max-w">
               <% tasks.each do |task| %>
-                <%= render "validate_task", task: task %>
+                <div class="picto-task">
+                  <i class="<%= task.category_picto%>"></i>
+                </div>
               <% end %>
             </div>
+
+            <div class="d-flex align-items-center" data-toggle-target="tourne">
+              <i class="fa-solid fa-circle-chevron-down fa-2xl text-white" data-action="click->toggle#fire"></i>
+            </div>
+
           </div>
+
+          <div class="d-none w-100 mt-3" data-toggle-target="togglableElement">
+            <% tasks.each do |task| %>
+              <%= render "validate_task", task: task %>
+            <% end %>
+          </div>
+
         </div>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
+<!-- Card -->

@@ -1,13 +1,24 @@
-<div class="d-flex justify-content-center align-items-center w-100 position-static h-64">
-  <%= link_to cultures_path, class: "rounded-button position-left bg-primary" do %>
-    <i class="fa-solid fa-arrow-left"></i>
+<div class="d-flex justify-content-<%= (local_assigns.has_key? :day_date) ? "between" : "center"%> align-items-center w-100 position-static h-64">
+  <% if back_button%>
+    <%= link_to cultures_path, class: "rounded-button position-left bg-primary" do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <%end%>
   <%end%>
   <h1 class="fw-bold fs-1 m-0">
     <%= title %>
   </h1>
-  <%= link_to culture_path(@culture),
+  <% if local_assigns.has_key? :day_date %>
+    <div>
+      <p class="fw-light m-0">
+        <%= day_date %>
+      </p>
+    </div>
+  <% end %>
+  <% if delete_button%>
+    <%= link_to culture_path(@culture),
                 data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"},
                 class:"rounded-button position-right bg-danger" do %>
-    <i class="fa-solid fa-trash"></i>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
   <% end %>
 </div>

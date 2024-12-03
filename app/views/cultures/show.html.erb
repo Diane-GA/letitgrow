@@ -1,5 +1,5 @@
 <div class="mobile-container d-flex flex-column align-items-center gap-20 overflow-x-hidden">
-  <%= render "side_panel_header", title: @culture.name %>
+  <%= render "shared/side_panel_header", title: @culture.name, back_button: true,  delete_button: true %>
   <%= render "progress_bar_circular"%>
   <div class="d-flex flex-column align-items-center text-primary fs-4">
     <h2 class="montserrat text-success">Comment ça pousse ?</h2>

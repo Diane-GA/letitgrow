@@ -1,5 +1,5 @@
 <div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20 padding-horizontal-15 padding-bottom-120">
-  <h1 class="fs-1 text-white fw-bold">Compte</h1>
+  <%= render "shared/side_panel_header", title: "Compte", back_button: false, delete_button: false %>
   <% if user_signed_in? %>
     <p>Hello <%= current_user.username%></p>
     <i class="fa-solid fa-user fs-150 color-sage"></i>
