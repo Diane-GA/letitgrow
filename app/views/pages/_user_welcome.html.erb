@@ -7,9 +7,9 @@
     <div><i class="fi fi-rs-raindrops icon"></i>Aujourd'hui, pas d'arrosage pour tes plantes d'extérieur !</div>
   </div>
   <div class = "meteo_card">
-    <h5>Nantes</h5>
-    <i class = "fi fi-rs-cloud-showers-heavy"></i>
-    <div>8°C</div>
+    <div><%= image_tag @user.meteo[:icon]%></div>
+    <div><%= @user.meteo[:city] %></div>
+    <div><%= @user.meteo[:temp] %></div>
   </div>
 </div>
 

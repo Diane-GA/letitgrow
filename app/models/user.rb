@@ -14,11 +14,14 @@ class User < ApplicationRecord
 
   def meteo
     url = "https://api.openweathermap.org/data/2.5/weather?lat=#{self.latitude}&lon=#{self.longitude}&appid=#{ENV['OPENWEATHER_MAP_API']}&units=metric"
-    meteo_serialized = URI.parse(url).read
-    meteo = JSON.parse(meteo_serialized)
-    icon = meteo['weather'].first['icon']
-
-    {temp: meteo['main']['temp'].round(1), icon: "https://openweathermap.org/img/w/#{icon}.png", city: meteo['name']}
+    if latitude =! nil || longitude =! nil
+      meteo_serialized = URI.parse(url).read
+      meteo = JSON.parse(meteo_serialized)
+      icon = meteo['weather'].first['icon']
+      {temp: meteo['main']['temp'].round(1), icon: "https://openweathermap.org/img/w/#{icon}.png", city: meteo['name']}
+    else
+      return "Indisponible"
+    end
   end
 
 end
