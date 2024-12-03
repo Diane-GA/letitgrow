@@ -6,7 +6,17 @@ class CulturesController < ApplicationController
 
   def show
     @culture = Culture.find(params[:id])
-    @tasks_reversed = @culture.tasks.reverse
+
+    @culture.tasks.each(&:update_statut)
+
+    tasks_just_reversed = @culture.tasks.sort_by(&:date).reverse
+
+    # TODO: date orange pour aujourd'hui
+    @today = Date.today
+    start_date = @today - 3
+    end_date = @today + 3
+    @tasks_reversed = tasks_just_reversed.select { |item| item.date >= start_date && item.date <= end_date }
+
     if @culture.status == "Graine"
       @progress_status = "seed"
     elsif @culture.status == "Jeune plant"
@@ -14,7 +24,7 @@ class CulturesController < ApplicationController
     else
       @progress_status = "mature"
     end
-    @age = (Date.today - @culture.plantation_date).to_i
+    @age = (@today - @culture.plantation_date).to_i
   end
 
   def new

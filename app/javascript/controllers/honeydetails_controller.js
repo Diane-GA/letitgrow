@@ -1,3 +1,5 @@
+/* CODE MORT => animation de la show de la page */
+
 import { Controller } from "@hotwired/stimulus"
 import { useTransition } from "stimulus-use"
 

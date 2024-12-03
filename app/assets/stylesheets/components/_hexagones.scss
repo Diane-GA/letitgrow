@@ -30,14 +30,9 @@
   border-radius: 20px;
 }
 
-.hexa:hover {
-  background: $dutch-white;
-  color: $black;
-}
-
 .hexa:active {
-  background: #a1bc83;
-  color: black;
+  background: $white;
+  color: $green-forest;
 }
 
 .disabled-hexa {
