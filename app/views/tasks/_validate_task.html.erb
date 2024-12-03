@@ -1,13 +1,11 @@
 <%= turbo_frame_tag task do %>
-  <div class='task-details p-2'>
-    <div class="task-description">
+  <div class="p-2">
+    <div class="task-description text-white fs-4">
       <%= task.description.capitalize %>
     </div>
     <div class="d-flex w-100 gap-2 mt-2">
       <%= link_to valid_task_task_path(task), data: { turbo_method: :patch } do%>
-        <li class="picto-bas<%= task.done ? '' : ''%>">
-          <i class="<%= task.done ?  "fi fi-ss-check-circle" : "fi fi-rs-check-circle"%>"></i>
-        </li>
+        <i class="picto-bas <%= task.done ?  "fi fi-ss-check-circle" : "fi fi-rs-check-circle"%>"></i>
       <%end%>
       <%= link_to edit_task_path(task.id) do %>
         <div class="picto-bas">
