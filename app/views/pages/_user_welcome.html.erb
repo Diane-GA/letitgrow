@@ -1,6 +1,18 @@
 <%# Carte de météo et conseil %>
 
 <%# Carte de bienvenue %>
+
+<div class = "long-card d-flex justify-content-between">
+  <div class = "advice-card d-flex align-items-center">
+    <div><i class="fi fi-rs-raindrops icon"></i>Aujourd'hui, pas d'arrosage pour tes plantes d'extérieur !</div>
+  </div>
+  <div class = "meteo_card">
+    <h5>Nantes</h5>
+    <i class = "fi fi-rs-cloud-showers-heavy"></i>
+    <div>8°C</div>
+  </div>
+</div>
+
 <div class= "long-card welcome-card mb-3">
   <%= link_to cultures_path do %>
     <div class= "d-flex justify-content-between align-items-center">
@@ -13,15 +25,4 @@
       </div>
     </div>
   <% end %>
-</div>
-
-<div class = "long-card d-flex justify-content-between">
-  <div class = "meteo_card">
-    <h5>Nantes</h5>
-    <i class = "fi fi-rs-cloud-showers-heavy"></i>
-    <p>15°C</p>
-  </div>
-  <div class = "advice-card">
-    <p>Aujourd'hui, pas d'arrosage pour tes plantes d'extérieur !</p>
-  </div>
 </div>
