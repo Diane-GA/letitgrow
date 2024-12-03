@@ -33,6 +33,7 @@ gem 'ancestry'
 gem "cloudinary"
 gem "simple_calendar"
 gem "rails-i18n"
+gem "geocoder"
 
 group :development, :test do
   gem "dotenv-rails"
