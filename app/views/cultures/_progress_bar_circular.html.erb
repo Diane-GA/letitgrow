@@ -1,12 +1,18 @@
 <div class="padding-horizontal-15 d-flex flex-column">
   <div class="progress-container d-flex justify-content-center align-items-center">
     <div class="circle-container">
-      <% if @culture.name == "Tomate" %>
+      <% if @culture.name == "tomate" %>
         <%= cl_image_tag(@master_tomate.photo.key, crop: :fill) %>
-      <% elsif @culture.name == "Ciboulette" %>
+      <% elsif @culture.name == "ciboulette" %>
         <%= cl_image_tag(@master_ciboulette.photo.key, crop: :fill) %>
-      <% elsif @culture.name == "Butternut" %>
+      <% elsif @culture.name == "butternut" %>
         <%= cl_image_tag(@master_butternut.photo.key, crop: :fill) %>
+      <% elsif @culture.name == "fraise" %>
+        <%= cl_image_tag(@master_fraise.photo.key, crop: :fill) %>
+      <% elsif @culture.name == "radis" %>
+        <%= cl_image_tag(@master_radis.photo.key, crop: :fill) %>
+      <% elsif @culture.name == "epinard" %>
+        <%= cl_image_tag(@master_epinard.photo.key, crop: :fill) %>
       <% end %>
     </div>
     <div class="svg-container">
