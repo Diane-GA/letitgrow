@@ -17,8 +17,8 @@
                    { class: "custom-input back-gray-input select-culture"  } %>
       </div>
       <!-- choix de la date plantation -->
-      <div>
-        <%= f.date_field :plantation_date, class: "custom-input back-gray-input", value: Date.today%>
+      <div class="position-relative">
+        <%= f.date_field :plantation_date, class: @new_culture.errors.messages[:plantation_date].first ? 'custom-input back-gray-input border-danger' : "custom-input back-gray-input", value: Date.today%>
       </div>
       <!-- choix de terre ou pot -->
       <div class= "form-container">

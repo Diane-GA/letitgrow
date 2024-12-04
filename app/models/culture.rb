@@ -2,7 +2,7 @@ class Culture < ApplicationRecord
   belongs_to :user
   has_many :tasks, dependent: :destroy
   validates :name, presence: true
-  validates :plantation_date, presence: true
+  validates :plantation_date, presence: { message: ""}
   validates :outdoor, inclusion: { in: [true, false]}
   validates :in_ground, inclusion: { in: [true, false]}
   has_one_attached :photo

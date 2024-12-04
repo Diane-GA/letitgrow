@@ -34,6 +34,7 @@ class CulturesController < ApplicationController
   end
 
   def new
+    @new_culture = Culture.new
   end
 
   def create
@@ -49,6 +50,12 @@ class CulturesController < ApplicationController
     @new_culture.user = current_user
     @new_culture.update(status: params_culture[:status], plantation_date: params_culture[:plantation_date], in_ground: params_culture[:in_ground], outdoor: params_culture[:outdoor])
 
+
+    unless @new_culture.valid?
+      render :new, status: :unprocessable_entity
+      return
+    end
+
     # on récupère les master tasks et on itère dessus
     @master_culture.tasks.each do |task|
       # à chaque itération on copie la task .dup
@@ -58,7 +65,8 @@ class CulturesController < ApplicationController
       # on save la task
       new_task.save
     end
-    # on save la culture + redirection show
+
+    # on save rla culture + redirection show
     if @new_culture.save
     redirect_to culture_path(@new_culture)
     else

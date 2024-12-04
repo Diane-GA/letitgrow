@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.category = "Custom"
     @task.culture = @culture
-    if @task.save!
+    if @task.save
       redirect_to index_date_tasks_path(date: @task.date)
     else
       render :new, status: :unprocessable_entity
