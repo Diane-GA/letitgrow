@@ -90,17 +90,6 @@
 
 /* PAGE cultures index */
 
-.icon img {
-  /* width: 50px; */
-  height: 300px;
-  margin-bottom: 20px;
-  filter: invert(99%) sepia(7%) saturate(93%) hue-rotate(178deg) brightness(112%) contrast(91%);
-}
-
-/* Doit rester dans ce fichier sinon ça ne fonctionne pas *
-/* cultures show */
-
-
 /* Doit rester dans ce fichier sinon ça ne fonctionne pas */
 ul {
   list-style-type: none;
@@ -108,20 +97,6 @@ ul {
   padding: unset;
 }
 
-.calendar {
-  width: 40px;
-  height: 40px;
-
-}
-
-.task-list:hover p {
-  color: $dutch-white;
-}
-
 a {
   text-decoration: none;
 }
-
-// label {
-//   display: none;
-// }
