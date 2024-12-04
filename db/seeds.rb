@@ -15,7 +15,7 @@ User.destroy_all
 
 puts "========== 🪄 Créations des Users 🪄 ==============="
 user = User.create!(email: "master@gmail.com", password: "123456", username: "Master", address: "Toronto")
-User.create!(email: "diane@gmail.com", password: "123456", username: "Marguerite", address: "11 rue mauvoisins, 44200, Nantes")
+User.create!(email: "diane@gmail.com", password: "123456", username: "Marguerite", address: "23 rue du paradis, 44350 Guérande")
 User.create!(email: "vivien@gmail.com", password: "123456", username: "Vivien", address: "8 place crousillat, 13300, Salon-de-Provence")
 User.create!(email: "clement@gmail.com", password: "123456", username: "Clement", address: "34 rue du bel-air, 74000, Annecy")
 User.create!(email: "anne-sophie@gmail.com", password: "123456", username: "Anne-sophie", address: "12 Kruvale Rd, Port Arthur TAS 7182, Australie")
