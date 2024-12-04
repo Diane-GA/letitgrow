@@ -1,0 +1,6 @@
+# config/meta.yml
+meta_product_name: "Let It Grow"
+meta_title: "Let It Grow - De la graine à la récolte, laisse-toi guider !"
+meta_description: "L'application qui vous aide à faire pousser vos cultures, et vous guide dans les tâches du quotidien. Alors, on sème ?"
+meta_image: "let-it-grow-presentation.png" # should exist in `app/assets/images/`
+

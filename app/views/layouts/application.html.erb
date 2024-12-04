@@ -2,7 +2,7 @@
 <html>
   <head>
     <script src="https://kit.fontawesome.com/397dfae160.js" crossorigin="anonymous"></script>
-    <title><%= content_for(:title) || "Letitgrow" %></title>
+    <title>Let it Grow: de la graine à la récolte ! </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="turbo-refresh-method" content="morph">
@@ -20,6 +20,21 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= render 'shared/ios_pwa_links' %>
+    <%# Meta Tags %>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+    <%# <!– Facebook Open Graph data –> %>
+    <meta property=”og:title” content=”<%= meta_title %>” />
+    <meta property=”og:type” content=”website” />
+    <meta property=”og:url” content=”<%= request.original_url %>” />
+    <meta property=”og:image” content=”<%= meta_image %>” />
+    <meta property=”og:description” content=”<%= meta_description %>” />
+    <meta property=”og:site_name” content=”<%= meta_title %>” />
+    <%# <!– Twitter Card data –> %>
+    <meta name=”twitter:card” content=”summary_large_image”>
+    <meta name=”twitter:title” content=”<%= meta_title %>”>
+    <meta name=”twitter:description” content=”<%= meta_description %>”>
+    <meta name=”twitter:image:src” content=”<%= meta_image %>”>
     <%# Flatpickr %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
@@ -51,7 +66,6 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
