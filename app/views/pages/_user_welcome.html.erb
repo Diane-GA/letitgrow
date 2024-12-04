@@ -4,12 +4,17 @@
 
 <div class = "long-card d-flex justify-content-between">
   <div class = "advice-card d-flex align-items-center">
-    <div><i class="fi fi-rs-raindrops icon"></i>Aujourd'hui, pas d'arrosage pour tes plantes d'extérieur !</div>
+    <div>
+      <div><i class="fi fi-tr-lightbulb-on icon"></i></div>
+      <div class= "content"><%= @user.meteo[:advice] %></div>
+    </div>
   </div>
   <div class = "meteo_card">
-    <div><%= image_tag @user.meteo[:icon]%></div>
-    <div><%= @user.meteo[:city] %></div>
-    <div><%= @user.meteo[:temp] %></div>
+      <div><i class="<%=@user.meteo[:icon]%> icon"></i></div>
+      <div class= "content_meteo flex-column">
+        <div><%= @user.meteo[:temp] %>°C</div>
+        <div><%= @user.meteo[:city] %></div>
+      </div>
   </div>
 </div>
 
