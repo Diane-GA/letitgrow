@@ -1,16 +1,56 @@
 .long-card {
   width: 90%;
-  height: 125px;
   margin : 3px;
   border-radius: 20px;
   margin-bottom: 15px;
+  height: 150px;
+}
+
+.meteo_card {
+  width: 35%;
+  padding : 15px;
+  border-radius: 20px;
+  border : 2px solid;
+  border-color: $green-forest;
+}
+.content {
+  margin-top: 15px;
+}
+.content_meteo{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.icon {
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.advice-card{
+  width: 60%;
+  padding : 15px;
+  border-radius: 20px;
+  border : 2px solid;
+  border-color: $green-forest;
+}
+
+.catchphrase {
+  font-size: 30px;
+  font-family: "Crimson Pro", serif;
+  font-weight: 500;
+  line-height: 120%;
+  margin-bottom: 45px;
 }
 
 
 .welcome-card {
-  box-shadow: 3px 3px 3px rgba(45, 45, 45, 0.5);
+  // box-shadow: 3px 3px 3px rgba(45, 45, 45, 0.5);
   background-color: $green-forest ;
   padding : 15px;
+  height: 125px;
 
   a {
     color : white;
@@ -28,32 +68,4 @@
   i {
     font-size: 40px;
   }
-}
-
-
-.meteo_card {
-  width: 35%;
-  padding : 15px;
-  border-radius: 20px;
-  border : 2px solid;
-  border-color: $green-forest;
-}
-
-.advice-card{
-  width: 60%;
-  padding : 15px;
-  border-radius: 20px;
-  border : 2px solid;
-  border-color: $green-forest;
-
-  .icon {
-    margin-right: 10px;
-  }
-}
-
-.catchphrase {
-  font-size: 30px;
-  font-family: "Crimson Pro", serif;
-  font-weight: 500;
-  line-height: 120%;
 }
