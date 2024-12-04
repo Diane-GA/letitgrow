@@ -5,12 +5,12 @@ class CulturesController < ApplicationController
   end
 
   def show
-    @master_tomate = Culture.find_by(name: "tomate", master: true)
-    @master_ciboulette = Culture.find_by(name: "ciboulette", master: true)
-    @master_butternut = Culture.find_by(name: "butternut", master: true)
-    @master_epinard = Culture.find_by(name: "epinard", master: true)
-    @master_radis = Culture.find_by(name: "radis", master: true)
-    @master_fraise = Culture.find_by(name: "fraise", master: true)
+    @master_tomate = Culture.find_by(name: "Tomate", master: true)
+    @master_ciboulette = Culture.find_by(name: "Ciboulette", master: true)
+    @master_butternut = Culture.find_by(name: "Butternut", master: true)
+    @master_epinard = Culture.find_by(name: "Epinard", master: true)
+    @master_radis = Culture.find_by(name: "Radis", master: true)
+    @master_fraise = Culture.find_by(name: "Fraise", master: true)
     @culture = Culture.find(params[:id])
 
     @culture.tasks.each(&:update_statut)
