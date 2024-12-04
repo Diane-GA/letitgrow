@@ -1,3 +1,9 @@
+.logo img {
+  height: 200px;
+  margin-bottom: 20px;
+  filter: invert(99%) sepia(7%) saturate(93%) hue-rotate(178deg) brightness(112%) contrast(91%);
+}
+
 .long-card {
   width: 90%;
   margin : 3px;
@@ -6,12 +12,12 @@
   height: 150px;
 }
 
+
 .meteo_card {
   width: 35%;
-  padding : 15px;
+  padding: 15px;
   border-radius: 20px;
-  border : 2px solid;
-  border-color: $green-forest;
+  border: 2px solid $green-forest;
 }
 .content {
   margin-top: 15px;
@@ -29,12 +35,11 @@
   justify-content: flex-start;
 }
 
-.advice-card{
+.advice-card {
   width: 60%;
-  padding : 15px;
+  padding: 15px;
   border-radius: 20px;
-  border : 2px solid;
-  border-color: $green-forest;
+  border: 2px solid $green-forest;
 }
 
 .catchphrase {

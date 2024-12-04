@@ -157,7 +157,7 @@ export default class extends Controller {
 
         var outer = createElement('div', this.getDayClass(day));
         outer.addEventListener('click', (event) => {
-          const days = event.target.innerText
+          const days = event.target.offsetParent.childNodes[1].innerText
           const yearMonth = formatDate(this.current._d)
           const fullDate = `${yearMonth}-${days}`
           const url = `${window.location.href}/index_date?date=${fullDate}`

@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = ["togglableElement", "tourne"]
 
   connect() {
-    console.log("Stimulus est dans le potager");
+    /* console.log("Stimulus est dans le potager"); */
   }
 
   fire() {
