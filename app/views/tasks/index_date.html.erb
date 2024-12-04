@@ -1,4 +1,4 @@
-<div class="mobile-container d-flex flex-column align-items-center gap-20 padding-horizontal-15">
+<div class="mobile-container d-flex flex-column align-items-center gap-20 padding-horizontal-15 padding-bottom-120">
   <%= render "shared/side_panel_header", title: "Tâches du jour", back_button: false, delete_button: false, day_date: I18n.l(@en_date, format: "%d %b") %>
   <% if @grouped_task.empty? %>
     <h2>Pas de tache aujourd'hui.</h2>
