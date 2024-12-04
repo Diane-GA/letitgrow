@@ -1,7 +1,13 @@
+.logo img {
+  height: 200px;
+  margin-bottom: 20px;
+  filter: invert(99%) sepia(7%) saturate(93%) hue-rotate(178deg) brightness(112%) contrast(91%);
+}
+
 .long-card {
   width: 90%;
   height: 125px;
-  margin : 3px;
+  margin: 3px;
   border-radius: 20px;
   margin-bottom: 15px;
 }
@@ -10,10 +16,10 @@
 .welcome-card {
   box-shadow: 3px 3px 3px rgba(45, 45, 45, 0.5);
   background-color: $green-forest ;
-  padding : 15px;
+  padding: 15px;
 
   a {
-    color : white;
+    color: $white;
   }
 
   p {
@@ -33,18 +39,16 @@
 
 .meteo_card {
   width: 35%;
-  padding : 15px;
+  padding: 15px;
   border-radius: 20px;
-  border : 2px solid;
-  border-color: $green-forest;
+  border: 2px solid $green-forest;
 }
 
-.advice-card{
+.advice-card {
   width: 60%;
-  padding : 15px;
+  padding: 15px;
   border-radius: 20px;
-  border : 2px solid;
-  border-color: $green-forest;
+  border: 2px solid $green-forest;
 
   .icon {
     margin-right: 10px;
