@@ -24,23 +24,29 @@ puts "========== 🪄 #{User.count} users crées ! 🪄 ==================="
 
 puts "========== 🔮 Créations des Cultures 🔮 ============"
 
-master_ciboulette = Culture.create!(name: "Ciboulette", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_ciboulette = Culture.new(name: "Ciboulette", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_ciboulette.photo.attach(io: URI.open("https://images.unsplash.com/photo-1719722628937-4e83eade87f6?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "ciboulette.jpg", content_type: "image/jpeg")
+master_ciboulette.save
 
-master_tomate = Culture.create!(name: "Tomate", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_tomate = Culture.new(name: "Tomate", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_tomate.photo.attach(io: URI.open("https://images.unsplash.com/photo-1534940519139-f860fb3c6e38?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "tomate.jpg", content_type: "image/jpeg")
+master_tomate.save
 
-master_butternut = Culture.create!(name: "Butternut", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_butternut = Culture.new(name: "Butternut", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_butternut.photo.attach(io: URI.open("https://images.unsplash.com/photo-1575679472639-3f3fc9b86bf6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "butternut.jpg", content_type: "image/jpeg")
+master_butternut.save
 
-master_epinard = Culture.create!(name: "Epinard", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_epinard = Culture.new(name: "Epinard", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_epinard.photo.attach(io: URI.open("https://images.unsplash.com/photo-1634731201932-9bd92839bea2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "epinard.jpg", content_type: "image/jpeg")
+master_epinard.save
 
-master_radis = Culture.create!(name: "Radis", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_radis = Culture.new(name: "Radis", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_radis.photo.attach(io: URI.open("https://images.unsplash.com/photo-1593026122758-19bebc625104?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "radis.jpg", content_type: "image/jpeg")
+master_radis.save
 
-master_fraise = Culture.create!(name: "Fraise", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
+master_fraise = Culture.new(name: "Fraise", plantation_date: "2024-11-29", in_ground: false, outdoor: false, status: "Graine", master: true, user: user)
 master_fraise.photo.attach(io: URI.open("https://images.unsplash.com/photo-1495570689269-d883b1224443?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "fraise.jpg", content_type: "image/jpeg")
+master_fraise.save
 
 puts "========== 🔮 #{Culture.count} Cultures crée 🔮 ==================="
 puts "====== 🪄 Créations des Tasks associé aux cultures 🪄 ============"
