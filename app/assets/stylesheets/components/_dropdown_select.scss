@@ -1,4 +1,4 @@
-.select_culture{
+.select-culture {
   position: relative;
   appearance: none;
   margin-bottom: 20px;
@@ -6,10 +6,16 @@
   color: #051303;
 }
 
-.select_culture::after{
-      content: asset-url("arrow_dropdown.png");
-      display: inline-block;
-      position: absolute;
-      top: 30px;
-      left: 450px;
+.select-culture::after {
+  content: asset-url("arrow_dropdown.png");
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  left: 450px;
+}
+
+.icon-input-position {
+  position: absolute;
+  top: 30px;
+  right: 40px;
 }
