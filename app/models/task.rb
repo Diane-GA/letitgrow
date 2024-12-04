@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :culture
   validates :name, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: { minimum: 3, maximum: 500 }
   # validates :order, presence: true / order n'est plus forcément utile
 
   after_create_commit :set_date

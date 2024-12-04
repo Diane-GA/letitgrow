@@ -19,7 +19,7 @@
 <%# renseignement du nom de tâche %>
     <div class="position-relative">
     <i class="fa-solid fa-pen" style="color: #051303; position: absolute;right: 40px;top: 25px;font-size:1rem"></i>
-      <%= f.text_field :description, class: "custom-input back-gray-input"%>
+      <%= f.text_field :description, class: task.errors.any? ? "custom-input back-gray-input border-danger" : "custom-input back-gray-input"%>
     </div>
 
 <%# validation %>
