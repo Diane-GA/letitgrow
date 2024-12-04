@@ -1,5 +1,5 @@
 <%= form_with model: task do |f| %>
-  <%= f.date_field :opening_date,
+  <%= f.date_field :date,
               as: :string,
               class: "custom-input back-gray-input", value: Date.today,
               input_html: { data: { controller: "datepicker" } } %>
