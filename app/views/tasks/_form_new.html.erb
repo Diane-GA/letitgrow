@@ -1,7 +1,7 @@
 <div class="mobile-container d-flex flex-column align-items-center gap-20 padding-horizontal-15">
 <%= render "shared/side_panel_header", title: "Tu veux faire quoi ?", back_button: true, delete_button: false %>
 
-<div class="form-container">
+<div class="form-container w-100 d-flex flex-column">
 <%# choix de la culture %>
   <%= form_with model: [culture, task], local: true, class:"w-100" do |f| %>
     <div class="form_new_select">
@@ -12,13 +12,13 @@
     </div>
 
 <%# choix de la date %>
-    <div class="">
-    <i class="fa-solid fa-pen" style="color: #051303; position: absolute;right: 53px;top: 50px;font-size:1rem"></i>
+    <div >
       <%= f.date_field :date, class: "custom-input back-gray-input", value: Date.today%>
     </div>
 
 <%# renseignement du nom de tâche %>
-    <div class="">
+    <div class="position-relative">
+    <i class="fa-solid fa-pen" style="color: #051303; position: absolute;right: 40px;top: 25px;font-size:1rem"></i>
       <%= f.text_field :description, class: "custom-input back-gray-input"%>
     </div>
 
