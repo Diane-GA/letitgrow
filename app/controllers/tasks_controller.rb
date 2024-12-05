@@ -21,7 +21,7 @@ class TasksController < ApplicationController
     @task.category = "Custom"
     @task.culture = @culture
     if @task.save
-      redirect_to index_date_tasks_path(date: @task.date)
+      redirect_to tasks_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to index_date_tasks_path(date: @task.date)
+    redirect_to tasks_path
   end
 
   def description
