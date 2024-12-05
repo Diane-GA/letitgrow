@@ -56,7 +56,7 @@ class User < ApplicationRecord
     elsif meteo['weather'].first['main'] == "Snow"
       return "Vérifie que tout est bien protégé dehors !"
     elsif meteo['weather'].first['main'] == "Clouds"
-      return "Dedans, mets tes pots devant les fenêtres !"
+      return "A l'intérieur, mets tes pots près des fenêtres !"
     elsif meteo['weather'].first['main'] == "Clear"
       return "Arrose plus souvent si la terre sèche trop vite !"
     elsif meteo['weather'].first['main'] == "Tornado"
