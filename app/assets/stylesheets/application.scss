@@ -26,13 +26,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
 }
 
 .mobile-container {
   width: 100%;
   max-width: 767px;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding-top: 20px;
 }
 
@@ -103,4 +104,8 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+.min-height-400 {
+  min-height: 400px;
 }
