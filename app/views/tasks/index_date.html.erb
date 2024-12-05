@@ -9,7 +9,9 @@
         <!-- Card -->
         <div class="w-100 rounded-20 bg-primary p-3" data-controller="toggle">
           <div>
+            <%= link_to culture_path(culture.id) do %>
             <h2 class="montserrat text-success fs-3 fw-semibold"><%= culture.name.upcase %></h2>
+            <% end %>
           </div>
           <div class="d-flex justify-content-between">
 
