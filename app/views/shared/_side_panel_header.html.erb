@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-<%= (local_assigns.has_key? :day_date) ? "between" : "center"%> align-items-center w-100 position-static h-64">
   <% if back_button%>
-    <%= link_to cultures_path, class: "rounded-button position-left bg-primary" do %>
+    <%= link_to back_path, class: "rounded-button position-left bg-primary" do %>
       <i class="fa-solid fa-arrow-left"></i>
     <%end%>
   <%end%>
