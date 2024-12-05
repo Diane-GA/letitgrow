@@ -4,11 +4,27 @@
     <%= link_to root_path do%>
       <i class="fa-solid fa-house text-primary fs-2"></i>
     <%end%>
+    <!-- var pour le flow current page  -->
+    <% path_culture = if params[:controller] == "tasks" && params[:action] == "new"
+          new_culture_task_path(@culture)
+        elsif params[:controller] == "cultures" && params[:action] == "new"
+          new_culture_path
+        elsif params[:controller] == "cultures" && params[:action] == "show"
+          culture_path(@culture)
+        else cultures_path
+        end
+    %>
     <%= link_to cultures_path do%>
-      <i class="fa-brands fa-envira text-<%= current_page?(cultures_path) ? "success" : "primary" %> fs-2"></i>
+      <i class="fa-brands fa-envira text-<%= current_page?(path_culture) ? "success" : "primary" %> fs-2"></i>
     <%end%>
     <%= link_to tasks_path(date: Date.today) do%>
-      <i class="fa-solid fa-list text-<%= current_page?(index_date_tasks_path) ? "success" : "primary" %> fs-2"></i>
+      <i class="fa-solid fa-list text-<%= current_page?(
+        if params[:controller] == "tasks" && params[:action] == "edit"
+        edit_task_path(@task)
+        else
+        index_date_tasks_path
+        end
+        ) ? "success" : "primary" %> fs-2"></i>
     <%end%>
     <%= link_to tasks_path do%>
       <i class="fa-regular fa-calendar text-<%= current_page?(tasks_path) ? "success" : "primary" %> fs-2"></i>
