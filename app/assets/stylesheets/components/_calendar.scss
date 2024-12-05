@@ -31,7 +31,7 @@
   .header {
     height: 50px;
     width: 390px;
-    background: #0D4232;
+    background: $green-forest;
     text-align: center;
     position:relative;
     z-index: 100;
@@ -107,7 +107,7 @@
   }
 
   .week {
-   background: #0D4232;
+   background: $green-forest;
   }
 
   .day {
@@ -117,7 +117,7 @@
     text-align: center;
     vertical-align: top;
     cursor: pointer;
-    background: #0D4232;
+    background: $green-forest;
     position: relative;
     z-index: 100;
   }
@@ -127,7 +127,7 @@
   }
 
   .day.today {
-    color: #D56C2F;
+    color: $pumpkin;
   }
 
   .day-name {
@@ -164,10 +164,7 @@
     margin: 0 1px;
   }
 
-  .blue { background: rgba(156, 202, 235, 1); }
-  .orange { background: #D56C2F; }
-  .green { background: rgba(153, 198, 109, 1); }
-  .yellow { background: rgba(249, 233, 0, 1); }
+  .orange { background: $pumpkin; }
 
   .details {
     position: relative;
@@ -287,10 +284,7 @@
     left: 14px;
   }
 
-  .entry.blue:after { background: rgba(156, 202, 235, 1); }
-  .entry.orange:after { background: rgba(247, 167, 0, 1); }
-  .entry.green:after { background: rgba(153, 198, 109, 1); }
-  .entry.yellow:after { background: rgba(249, 233, 0, 1); }
+  .entry.orange:after { background: $pumpkin; }
 
   /* Animations are cool!  */
   @-webkit-keyframes moveFromTopFade {
