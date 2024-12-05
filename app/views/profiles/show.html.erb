@@ -1,8 +1,12 @@
 <div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20 padding-horizontal-15 padding-bottom-120">
   <%= render "shared/side_panel_header", title: "Compte", back_button: false, delete_button: false %>
   <% if user_signed_in? %>
-    <p>Hello <%= current_user.username%></p>
-    <i class="fa-solid fa-user fs-150 color-sage"></i>
+    <div>
+      <p>Hello <%= current_user.username%></p>
+    </div>
+    <div>
+      <%= cl_image_tag(current_user.photo.key, transformation: [{aspect_ratio: "1.0", width: 250, crop: "fill"}, {radius: "max"}, {fetch_format: "auto"}]) %>
+    </div>
     <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-outline-danger w-100 h-64 rounded-50 p-3 fs-5" %>
   <% else %>
     <%= link_to "Login", new_user_session_path, class: "nav-link" %>

@@ -14,12 +14,25 @@ puts "========== ⛏️ Suppression des Users ⛏️ ============="
 User.destroy_all
 
 puts "========== 🪄 Créations des Users 🪄 ==============="
-user = User.create!(email: "master@gmail.com", password: "123456", username: "Master", address: "Toronto")
-User.create!(email: "diane@gmail.com", password: "123456", username: "Marguerite", address: "23 rue du paradis, 44350 Guérande")
-User.create!(email: "vivien@gmail.com", password: "123456", username: "Vivien", address: "8 place crousillat, 13300, Salon-de-Provence")
-User.create!(email: "clement@gmail.com", password: "123456", username: "Clement", address: "34 rue du bel-air, 74000, Annecy")
-User.create!(email: "anne-sophie@gmail.com", password: "123456", username: "Anne-sophie", address: "12 Kruvale Rd, Port Arthur TAS 7182, Australie")
+user = User.new(email: "master@gmail.com", password: "123456", username: "Master", address: "Toronto")
+user.photo.attach(io: URI.open("https://images.pexels.com/photos/144248/potatoes-vegetables-erdfrucht-bio-144248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), filename: "master.jpg", content_type: "image/jpeg")
+user.save
 
+marguerite = User.new(email: "diane@gmail.com", password: "123456", username: "Marguerite", address: "23 rue du paradis, 44350 Guérande")
+marguerite.photo.attach(io: URI.open("https://images.pexels.com/photos/67857/daisy-flower-spring-marguerite-67857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), filename: "marguerite.jpg", content_type: "image/jpeg")
+marguerite.save
+
+vivien = User.new(email: "vivien@gmail.com", password: "123456", username: "Vivien", address: "8 place crousillat, 13300, Salon-de-Provence")
+vivien.photo.attach(io: URI.open("https://images.unsplash.com/photo-1532562066470-f6f5f6d47924?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), filename: "vivien.jpg", content_type: "image/jpeg")
+vivien.save
+
+clement = User.new(email: "clement@gmail.com", password: "123456", username: "Clement", address: "34 rue du bel-air, 74000, Annecy")
+clement.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/31104847?v=4"), filename: "master.jpg", content_type: "image/jpeg")
+clement.save
+
+anne_sophie = User.new(email: "anne-sophie@gmail.com", password: "123456", username: "Anne-sophie", address: "12 Kruvale Rd, Port Arthur TAS 7182, Australie")
+anne_sophie.photo.attach(io: URI.open("https://i.ibb.co/7JJMj9G/image-1.png"), filename: "master.jpg", content_type: "image/jpeg")
+anne_sophie.save
 puts "========== 🪄 #{User.count} users crées ! 🪄 ==================="
 
 puts "========== 🔮 Créations des Cultures 🔮 ============"
