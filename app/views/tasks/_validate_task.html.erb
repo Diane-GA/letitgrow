@@ -1,18 +1,21 @@
-<%= turbo_frame_tag task do %>
-  <div class="p-2">
-    <div class="task-description text-white fs-4">
-      <div>&middot; <%= task.name.capitalize %> &middot;</div>
-      <div><%= task.description.capitalize %></div>
-    </div>
-    <div class="d-flex w-100 gap-2 mt-2">
-      <%= link_to valid_task_task_path(task), data: { turbo_method: :patch } do%>
-        <i class="picto-bas <%= task.done ?  "fi fi-ss-check-circle" : "fi fi-rs-check-circle"%>"></i>
-      <%end%>
-      <%= link_to edit_task_path(task), data: { turbo_frame: "_top" } do %>
-        <div class="picto-bas">
-          <i class="fi fi-rr-time-forward"></i>
-        </div>
-      <% end %>
+
+
+<div class="d-flex align-items-start p-2">
+<%# icônes %>
+  <div class="d-flex flex-column me-3">
+    <%= link_to valid_task_task_path(task), data: { turbo_method: :patch } do %>
+      <i class="picto-bas mb-2 <%= task.done ? "fi fi-ss-check-circle" : "fi fi-rs-check-circle" %>"></i>
+    <% end %>
+    <%= link_to edit_task_path(task), data: { turbo_frame: "_top" } do %>
+      <i class="picto-bas fi fi-rr-time-forward"></i>
+    <% end %>
+  </div>
+
+<%# name_task & text task %>
+  <div class="flex-grow-1">
+    <div class="task-description text-white">
+      <div class="fs-2 mb-2" ><%= task.name.capitalize %> </div>
+      <div class="fs-5 lh-sm mb-2 text-justify"><%= task.description.capitalize %></div>
     </div>
   </div>
-<% end %>
+</div>
