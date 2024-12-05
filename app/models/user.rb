@@ -20,7 +20,7 @@ class User < ApplicationRecord
       puts meteo
       icon = icon_finder(meteo)
       advice = advice_finder(meteo)
-      { temp: meteo['main']['temp'].round(1), icon: icon, city: meteo['name'], advice: advice }
+      { temp: meteo['main']['temp'].round(0), icon: icon, city: meteo['name'], advice: advice }
     else
       return "Indisponible"
     end
