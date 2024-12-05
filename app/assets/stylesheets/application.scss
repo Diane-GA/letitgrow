@@ -18,6 +18,10 @@
 // Import style simple calendar
 @import "simple_calendar";
 
+body {
+  background-color: $gray-mouse;
+}
+
 .app-container {
   display: flex;
   align-items: center;
