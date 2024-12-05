@@ -45,10 +45,6 @@ class Task < ApplicationRecord
   end
 
   def update_statut
-    if (name == "Semer") && (culture.plantation_date <= Date.today)
-      update(done: true)
-      update(date: culture.plantation_date)
-    end
     update(date: Date.today + 1) if done == false && date < Date.today
   end
 end
