@@ -1,15 +1,14 @@
 <!-- New-->
 <%= form_with(model: resource, scope: resource_name, url: session_path(resource_name), local: true) do |f| %>
-  <%= f.label :email %>
+  <%= f.label :email, class:"d-none" %>
   <%= f.email_field :email, autofocus: true, class: "custom-input back-green-input", placeholder: "email" %>
-  <%= f.label :password %>
+  <%= f.label :password, class:"d-none" %>
   <%= f.password_field :password, autocomplete: "current-password", class: "custom-input back-green-input", placeholder: "mot de passe" %>
   <% if devise_mapping.rememberable? %>
     <div class="checked-display-none">
       <%= f.check_box :remember_me, checked: true %>
-      <%= f.label :remember_me %>
+      <%= f.label :remember_me, class:"d-none" %>
     </div>
   <% end %>
   <%= f.submit "Se connecter", class: "btn btn-warning w-100 h-64 rounded-50 text-white p-3 fs-5" %>
 <% end %>
-
