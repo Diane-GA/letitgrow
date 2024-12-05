@@ -19,9 +19,13 @@
       <%end%>
     </div>
     <ul class="fs-5 pt-4" id="tasks">
+    <% if @tasks_reversed == [] %>
+      <p class="text-white"><%= "Pas de tâche, pistache !" %></p>
+    <% else %>
       <% @tasks_reversed.each do |task|%>
         <%= render "tasks_list", task: task%>
       <%end%>
+    <% end %>
     </ul>
   </div>
 </div>
