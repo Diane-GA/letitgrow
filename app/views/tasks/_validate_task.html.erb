@@ -1,7 +1,8 @@
 <%= turbo_frame_tag task do %>
   <div class="p-2">
     <div class="task-description text-white fs-4">
-      <%= task.description.capitalize %>
+      <div class= "titre-task">&middot; <%= task.name.capitalize %> &middot;</div>
+      <div><%= task.description.capitalize %></div>
     </div>
     <div class="d-flex w-100 gap-2 mt-2">
       <%= link_to valid_task_task_path(task), data: { turbo_method: :patch } do%>
