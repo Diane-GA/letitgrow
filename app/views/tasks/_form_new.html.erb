@@ -5,7 +5,7 @@
     <%= form_with model: [culture, task], local: true, class:"w-100" do |f| %>
       <div class="position-relative">
         <i class="fa-solid fa-pen fs-6 icon-pen-input-position"></i>
-        <%= f.text_field :name, class: task.errors.any? ? "custom-input back-gray-input border-danger" : "custom-input back-gray-input"%>
+        <%= f.text_field :name, placeholder: "nom de ta tâche", class: task.errors.any? ? "custom-input back-gray-input border-danger" : "custom-input back-gray-input"%>
       </div>
       <%# choix de la date %>
       <div >
@@ -14,7 +14,7 @@
       <%# renseignement du nom de tâche %>
       <div class="position-relative">
         <i class="fa-solid fa-pen fs-6 icon-pen-input-position"></i>
-        <%= f.text_field :description, class: task.errors.any? ? "custom-input back-gray-input border-danger" : "custom-input back-gray-input"%>
+        <%= f.text_field :description, placeholder: "détails de ta tâche", class: task.errors.any? ? "custom-input back-gray-input border-danger" : "custom-input back-gray-input"%>
       </div>
       <%# validation %>
       <div class="btn-submit">
