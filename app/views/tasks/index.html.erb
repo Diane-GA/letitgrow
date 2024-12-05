@@ -1,6 +1,9 @@
-<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center justify-content-center gap-20">
-  <div id="calendar" data-controller="calendar"
-  data-calendar-tasks-value='<%= @tasks.to_json %>'>
+<div class="mobile-container bg-primary text-white d-flex flex-column align-items-center gap-20">
+  <%= render "shared/side_panel_header", title: "Calendrier des tâches", back_button: false, delete_button: false %>
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <div id="calendar" data-controller="calendar" data-calendar-tasks-value='<%= @tasks.to_json %>'>
+    </div>
   </div>
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+</div>
